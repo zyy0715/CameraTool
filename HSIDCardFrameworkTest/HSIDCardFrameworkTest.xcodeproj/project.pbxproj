@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B07F11424FE5C0F00F004F7 /* UIImage+IDCardExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */; };
+		9B07F11524FE5C0F00F004F7 /* HSIDCardQualityScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0F924FE5C0F00F004F7 /* HSIDCardQualityScannerController.m */; };
+		9B07F11624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0FA24FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m */; };
+		9B07F11724FE5C0F00F004F7 /* HSIDCardQualityScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0FC24FE5C0F00F004F7 /* HSIDCardQualityScanView.m */; };
+		9B07F11824FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0FE24FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m */; };
+		9B07F11924FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F10024FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.m */; };
+		9B07F11A24FE5C0F00F004F7 /* HSIDCardScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F10224FE5C0F00F004F7 /* HSIDCardScannerViewController.m */; };
+		9B07F11B24FE5C0F00F004F7 /* HSCustomIDCardScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F10424FE5C0F00F004F7 /* HSCustomIDCardScannerController.m */; };
+		9B07F11D24FE5C0F00F004F7 /* idIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10924FE5C0F00F004F7 /* idIcon@3x.png */; };
+		9B07F11E24FE5C0F00F004F7 /* idIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10A24FE5C0F00F004F7 /* idIcon.png */; };
+		9B07F11F24FE5C0F00F004F7 /* idIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10B24FE5C0F00F004F7 /* idIcon@2x.png */; };
+		9B07F12024FE5C0F00F004F7 /* nav_btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10C24FE5C0F00F004F7 /* nav_btn_back@2x.png */; };
+		9B07F12124FE5C0F00F004F7 /* nav_btn_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10D24FE5C0F00F004F7 /* nav_btn_back@3x.png */; };
+		9B07F12224FE5C0F00F004F7 /* nav_btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10E24FE5C0F00F004F7 /* nav_btn_back.png */; };
+		9B07F12324FE5C0F00F004F7 /* idHead.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F10F24FE5C0F00F004F7 /* idHead.png */; };
+		9B07F12424FE5C0F00F004F7 /* photograph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F11024FE5C0F00F004F7 /* photograph@3x.png */; };
+		9B07F12524FE5C0F00F004F7 /* photograph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F11124FE5C0F00F004F7 /* photograph@2x.png */; };
+		9B07F12624FE5C0F00F004F7 /* idHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F11224FE5C0F00F004F7 /* idHead@2x.png */; };
+		9B07F12724FE5C0F00F004F7 /* idHead@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07F11324FE5C0F00F004F7 /* idHead@3x.png */; };
+		9B0810DD24FD026A0065E702 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810DC24FD026A0065E702 /* AppDelegate.m */; };
+		9B0810E324FD026A0065E702 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810E224FD026A0065E702 /* ViewController.m */; };
+		9B0810E624FD026A0065E702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0810E424FD026A0065E702 /* Main.storyboard */; };
+		9B0810E824FD026D0065E702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0810E724FD026D0065E702 /* Assets.xcassets */; };
+		9B0810EB24FD026D0065E702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0810E924FD026D0065E702 /* LaunchScreen.storyboard */; };
+		9B0810EE24FD026D0065E702 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810ED24FD026D0065E702 /* main.m */; };
+		9B0810F824FD026D0065E702 /* HSIDCardFrameworkTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */; };
+		9B08110324FD026D0065E702 /* HSIDCardFrameworkTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B0810F424FD026D0065E702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B0810D024FD026A0065E702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B0810D724FD026A0065E702;
+			remoteInfo = HSIDCardFrameworkTest;
+		};
+		9B0810FF24FD026D0065E702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B0810D024FD026A0065E702 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B0810D724FD026A0065E702;
+			remoteInfo = HSIDCardFrameworkTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9B08112D24FD03E90065E702 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IDCardExtend.m"; sourceTree = "<group>"; };
+		9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IDCardExtend.h"; sourceTree = "<group>"; };
+		9B07F0F624FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityVideoCapture.h; sourceTree = "<group>"; };
+		9B07F0F724FE5C0F00F004F7 /* HSIDCardScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardScannerViewController.h; sourceTree = "<group>"; };
+		9B07F0F824FE5C0F00F004F7 /* HSOCRIDCardQualityEnumTypeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSOCRIDCardQualityEnumTypeHeader.h; sourceTree = "<group>"; };
+		9B07F0F924FE5C0F00F004F7 /* HSIDCardQualityScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardQualityScannerController.m; sourceTree = "<group>"; };
+		9B07F0FA24FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardQualityVideoCaptureManger.m; sourceTree = "<group>"; };
+		9B07F0FB24FE5C0F00F004F7 /* HSIDCardQualityDefineHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityDefineHeader.h; sourceTree = "<group>"; };
+		9B07F0FC24FE5C0F00F004F7 /* HSIDCardQualityScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardQualityScanView.m; sourceTree = "<group>"; };
+		9B07F0FD24FE5C0F00F004F7 /* HSCustomIDCardScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCustomIDCardScannerController.h; sourceTree = "<group>"; };
+		9B07F0FE24FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardQualityBaseScanView.m; sourceTree = "<group>"; };
+		9B07F0FF24FE5C0F00F004F7 /* HSIDCardQualityScanEnumHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityScanEnumHeader.h; sourceTree = "<group>"; };
+		9B07F10024FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardQualityVideoCapture.m; sourceTree = "<group>"; };
+		9B07F10124FE5C0F00F004F7 /* HSIDCardQualityScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityScannerController.h; sourceTree = "<group>"; };
+		9B07F10224FE5C0F00F004F7 /* HSIDCardScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSIDCardScannerViewController.m; sourceTree = "<group>"; };
+		9B07F10324FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityBaseScanView.h; sourceTree = "<group>"; };
+		9B07F10424FE5C0F00F004F7 /* HSCustomIDCardScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCustomIDCardScannerController.m; sourceTree = "<group>"; };
+		9B07F10524FE5C0F00F004F7 /* HSIDCardQualityScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityScanView.h; sourceTree = "<group>"; };
+		9B07F10624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityVideoCaptureManger.h; sourceTree = "<group>"; };
+		9B07F10924FE5C0F00F004F7 /* idIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idIcon@3x.png"; sourceTree = "<group>"; };
+		9B07F10A24FE5C0F00F004F7 /* idIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idIcon.png; sourceTree = "<group>"; };
+		9B07F10B24FE5C0F00F004F7 /* idIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idIcon@2x.png"; sourceTree = "<group>"; };
+		9B07F10C24FE5C0F00F004F7 /* nav_btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_btn_back@2x.png"; sourceTree = "<group>"; };
+		9B07F10D24FE5C0F00F004F7 /* nav_btn_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_btn_back@3x.png"; sourceTree = "<group>"; };
+		9B07F10E24FE5C0F00F004F7 /* nav_btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_btn_back.png; sourceTree = "<group>"; };
+		9B07F10F24FE5C0F00F004F7 /* idHead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idHead.png; sourceTree = "<group>"; };
+		9B07F11024FE5C0F00F004F7 /* photograph@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photograph@3x.png"; sourceTree = "<group>"; };
+		9B07F11124FE5C0F00F004F7 /* photograph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photograph@2x.png"; sourceTree = "<group>"; };
+		9B07F11224FE5C0F00F004F7 /* idHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@2x.png"; sourceTree = "<group>"; };
+		9B07F11324FE5C0F00F004F7 /* idHead@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@3x.png"; sourceTree = "<group>"; };
+		9B0810D824FD026A0065E702 /* HSIDCard集成demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HSIDCard集成demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0810DB24FD026A0065E702 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B0810DC24FD026A0065E702 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B0810E124FD026A0065E702 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B0810E224FD026A0065E702 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B0810E524FD026A0065E702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B0810E724FD026D0065E702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B0810EA24FD026D0065E702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B0810EC24FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B0810ED24FD026D0065E702 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B0810F324FD026D0065E702 /* HSIDCardFrameworkTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSIDCardFrameworkTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDCardFrameworkTestTests.m; sourceTree = "<group>"; };
+		9B0810F924FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSIDCardFrameworkTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDCardFrameworkTestUITests.m; sourceTree = "<group>"; };
+		9B08110424FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B0810D524FD026A0065E702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810F024FD026D0065E702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810FB24FD026D0065E702 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B07F0F124FE5C0F00F004F7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9B07F0F224FE5C0F00F004F7 /* Tools */,
+				9B07F0F524FE5C0F00F004F7 /* HSIDCardQualityScanner */,
+			);
+			name = Classes;
+			path = ../../Classes;
+			sourceTree = "<group>";
+		};
+		9B07F0F224FE5C0F00F004F7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
+				9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9B07F0F524FE5C0F00F004F7 /* HSIDCardQualityScanner */ = {
+			isa = PBXGroup;
+			children = (
+				9B07F0FD24FE5C0F00F004F7 /* HSCustomIDCardScannerController.h */,
+				9B07F10424FE5C0F00F004F7 /* HSCustomIDCardScannerController.m */,
+				9B07F10324FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.h */,
+				9B07F0FE24FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m */,
+				9B07F0FB24FE5C0F00F004F7 /* HSIDCardQualityDefineHeader.h */,
+				9B07F0FF24FE5C0F00F004F7 /* HSIDCardQualityScanEnumHeader.h */,
+				9B07F10124FE5C0F00F004F7 /* HSIDCardQualityScannerController.h */,
+				9B07F0F924FE5C0F00F004F7 /* HSIDCardQualityScannerController.m */,
+				9B07F10524FE5C0F00F004F7 /* HSIDCardQualityScanView.h */,
+				9B07F0FC24FE5C0F00F004F7 /* HSIDCardQualityScanView.m */,
+				9B07F0F624FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.h */,
+				9B07F10024FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.m */,
+				9B07F10624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.h */,
+				9B07F0FA24FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m */,
+				9B07F0F724FE5C0F00F004F7 /* HSIDCardScannerViewController.h */,
+				9B07F10224FE5C0F00F004F7 /* HSIDCardScannerViewController.m */,
+				9B07F0F824FE5C0F00F004F7 /* HSOCRIDCardQualityEnumTypeHeader.h */,
+			);
+			path = HSIDCardQualityScanner;
+			sourceTree = "<group>";
+		};
+		9B07F10824FE5C0F00F004F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B07F10924FE5C0F00F004F7 /* idIcon@3x.png */,
+				9B07F10A24FE5C0F00F004F7 /* idIcon.png */,
+				9B07F10B24FE5C0F00F004F7 /* idIcon@2x.png */,
+				9B07F10C24FE5C0F00F004F7 /* nav_btn_back@2x.png */,
+				9B07F10D24FE5C0F00F004F7 /* nav_btn_back@3x.png */,
+				9B07F10E24FE5C0F00F004F7 /* nav_btn_back.png */,
+				9B07F10F24FE5C0F00F004F7 /* idHead.png */,
+				9B07F11024FE5C0F00F004F7 /* photograph@3x.png */,
+				9B07F11124FE5C0F00F004F7 /* photograph@2x.png */,
+				9B07F11224FE5C0F00F004F7 /* idHead@2x.png */,
+				9B07F11324FE5C0F00F004F7 /* idHead@3x.png */,
+			);
+			name = Resources;
+			path = ../../Resources;
+			sourceTree = "<group>";
+		};
+		9B0810CF24FD026A0065E702 = {
+			isa = PBXGroup;
+			children = (
+				9B0810DA24FD026A0065E702 /* HSIDCardFrameworkTest */,
+				9B0810F624FD026D0065E702 /* HSIDCardFrameworkTestTests */,
+				9B08110124FD026D0065E702 /* HSIDCardFrameworkTestUITests */,
+				9B0810D924FD026A0065E702 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B0810D924FD026A0065E702 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B0810D824FD026A0065E702 /* HSIDCard集成demo.app */,
+				9B0810F324FD026D0065E702 /* HSIDCardFrameworkTestTests.xctest */,
+				9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B0810DA24FD026A0065E702 /* HSIDCardFrameworkTest */ = {
+			isa = PBXGroup;
+			children = (
+				9B0810DB24FD026A0065E702 /* AppDelegate.h */,
+				9B0810DC24FD026A0065E702 /* AppDelegate.m */,
+				9B0810E124FD026A0065E702 /* ViewController.h */,
+				9B0810E224FD026A0065E702 /* ViewController.m */,
+				9B07F0F124FE5C0F00F004F7 /* Classes */,
+				9B07F10824FE5C0F00F004F7 /* Resources */,
+				9B0810E424FD026A0065E702 /* Main.storyboard */,
+				9B0810E724FD026D0065E702 /* Assets.xcassets */,
+				9B0810E924FD026D0065E702 /* LaunchScreen.storyboard */,
+				9B0810EC24FD026D0065E702 /* Info.plist */,
+				9B0810ED24FD026D0065E702 /* main.m */,
+			);
+			path = HSIDCardFrameworkTest;
+			sourceTree = "<group>";
+		};
+		9B0810F624FD026D0065E702 /* HSIDCardFrameworkTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */,
+				9B0810F924FD026D0065E702 /* Info.plist */,
+			);
+			path = HSIDCardFrameworkTestTests;
+			sourceTree = "<group>";
+		};
+		9B08110124FD026D0065E702 /* HSIDCardFrameworkTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */,
+				9B08110424FD026D0065E702 /* Info.plist */,
+			);
+			path = HSIDCardFrameworkTestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B0810D724FD026A0065E702 /* HSIDCardFrameworkTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B08110724FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTest" */;
+			buildPhases = (
+				9B0810D424FD026A0065E702 /* Sources */,
+				9B0810D524FD026A0065E702 /* Frameworks */,
+				9B0810D624FD026A0065E702 /* Resources */,
+				9B08112D24FD03E90065E702 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HSIDCardFrameworkTest;
+			productName = HSIDCardFrameworkTest;
+			productReference = 9B0810D824FD026A0065E702 /* HSIDCard集成demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B0810F224FD026D0065E702 /* HSIDCardFrameworkTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B08110A24FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTestTests" */;
+			buildPhases = (
+				9B0810EF24FD026D0065E702 /* Sources */,
+				9B0810F024FD026D0065E702 /* Frameworks */,
+				9B0810F124FD026D0065E702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B0810F524FD026D0065E702 /* PBXTargetDependency */,
+			);
+			name = HSIDCardFrameworkTestTests;
+			productName = HSIDCardFrameworkTestTests;
+			productReference = 9B0810F324FD026D0065E702 /* HSIDCardFrameworkTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9B0810FD24FD026D0065E702 /* HSIDCardFrameworkTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B08110D24FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTestUITests" */;
+			buildPhases = (
+				9B0810FA24FD026D0065E702 /* Sources */,
+				9B0810FB24FD026D0065E702 /* Frameworks */,
+				9B0810FC24FD026D0065E702 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B08110024FD026D0065E702 /* PBXTargetDependency */,
+			);
+			name = HSIDCardFrameworkTestUITests;
+			productName = HSIDCardFrameworkTestUITests;
+			productReference = 9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B0810D024FD026A0065E702 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = farben;
+				TargetAttributes = {
+					9B0810D724FD026A0065E702 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					9B0810F224FD026D0065E702 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 9B0810D724FD026A0065E702;
+					};
+					9B0810FD24FD026D0065E702 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 9B0810D724FD026A0065E702;
+					};
+				};
+			};
+			buildConfigurationList = 9B0810D324FD026A0065E702 /* Build configuration list for PBXProject "HSIDCardFrameworkTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B0810CF24FD026A0065E702;
+			productRefGroup = 9B0810D924FD026A0065E702 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B0810D724FD026A0065E702 /* HSIDCardFrameworkTest */,
+				9B0810F224FD026D0065E702 /* HSIDCardFrameworkTestTests */,
+				9B0810FD24FD026D0065E702 /* HSIDCardFrameworkTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B0810D624FD026A0065E702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B07F12324FE5C0F00F004F7 /* idHead.png in Resources */,
+				9B07F11E24FE5C0F00F004F7 /* idIcon.png in Resources */,
+				9B07F12224FE5C0F00F004F7 /* nav_btn_back.png in Resources */,
+				9B07F12424FE5C0F00F004F7 /* photograph@3x.png in Resources */,
+				9B07F12124FE5C0F00F004F7 /* nav_btn_back@3x.png in Resources */,
+				9B0810EB24FD026D0065E702 /* LaunchScreen.storyboard in Resources */,
+				9B07F12724FE5C0F00F004F7 /* idHead@3x.png in Resources */,
+				9B07F11D24FE5C0F00F004F7 /* idIcon@3x.png in Resources */,
+				9B0810E824FD026D0065E702 /* Assets.xcassets in Resources */,
+				9B07F12024FE5C0F00F004F7 /* nav_btn_back@2x.png in Resources */,
+				9B07F11F24FE5C0F00F004F7 /* idIcon@2x.png in Resources */,
+				9B07F12524FE5C0F00F004F7 /* photograph@2x.png in Resources */,
+				9B0810E624FD026A0065E702 /* Main.storyboard in Resources */,
+				9B07F12624FE5C0F00F004F7 /* idHead@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810F124FD026D0065E702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810FC24FD026D0065E702 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B0810D424FD026A0065E702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B07F11424FE5C0F00F004F7 /* UIImage+IDCardExtend.m in Sources */,
+				9B07F11724FE5C0F00F004F7 /* HSIDCardQualityScanView.m in Sources */,
+				9B07F11524FE5C0F00F004F7 /* HSIDCardQualityScannerController.m in Sources */,
+				9B0810E324FD026A0065E702 /* ViewController.m in Sources */,
+				9B0810DD24FD026A0065E702 /* AppDelegate.m in Sources */,
+				9B07F11624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m in Sources */,
+				9B07F11924FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.m in Sources */,
+				9B07F11A24FE5C0F00F004F7 /* HSIDCardScannerViewController.m in Sources */,
+				9B07F11824FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m in Sources */,
+				9B0810EE24FD026D0065E702 /* main.m in Sources */,
+				9B07F11B24FE5C0F00F004F7 /* HSCustomIDCardScannerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810EF24FD026D0065E702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B0810F824FD026D0065E702 /* HSIDCardFrameworkTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B0810FA24FD026D0065E702 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B08110324FD026D0065E702 /* HSIDCardFrameworkTestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B0810F524FD026D0065E702 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B0810D724FD026A0065E702 /* HSIDCardFrameworkTest */;
+			targetProxy = 9B0810F424FD026D0065E702 /* PBXContainerItemProxy */;
+		};
+		9B08110024FD026D0065E702 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B0810D724FD026A0065E702 /* HSIDCardFrameworkTest */;
+			targetProxy = 9B0810FF24FD026D0065E702 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B0810E424FD026A0065E702 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B0810E524FD026A0065E702 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9B0810E924FD026D0065E702 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B0810EA24FD026D0065E702 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B08110524FD026D0065E702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9B08110624FD026D0065E702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B08110824FD026D0065E702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HSIDCardFrameworkTest",
+				);
+				INFOPLIST_FILE = HSIDCardFrameworkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_NAME = "HSIDCard集成demo";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B08110924FD026D0065E702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HSIDCardFrameworkTest",
+				);
+				INFOPLIST_FILE = HSIDCardFrameworkTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_NAME = "HSIDCard集成demo";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9B08110B24FD026D0065E702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				INFOPLIST_FILE = HSIDCardFrameworkTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HSIDCardFrameworkTest.app/HSIDCardFrameworkTest";
+			};
+			name = Debug;
+		};
+		9B08110C24FD026D0065E702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				INFOPLIST_FILE = HSIDCardFrameworkTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HSIDCardFrameworkTest.app/HSIDCardFrameworkTest";
+			};
+			name = Release;
+		};
+		9B08110E24FD026D0065E702 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HSIDCardFrameworkTest;
+			};
+			name = Debug;
+		};
+		9B08110F24FD026D0065E702 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TZR7PRA233;
+				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HSIDCardFrameworkTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B0810D324FD026A0065E702 /* Build configuration list for PBXProject "HSIDCardFrameworkTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B08110524FD026D0065E702 /* Debug */,
+				9B08110624FD026D0065E702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B08110724FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B08110824FD026D0065E702 /* Debug */,
+				9B08110924FD026D0065E702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B08110A24FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B08110B24FD026D0065E702 /* Debug */,
+				9B08110C24FD026D0065E702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B08110D24FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B08110E24FD026D0065E702 /* Debug */,
+				9B08110F24FD026D0065E702 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B0810D024FD026A0065E702 /* Project object */;
+}

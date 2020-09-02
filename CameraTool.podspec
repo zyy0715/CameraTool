@@ -25,6 +25,8 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+  1.首次提交版本,
+  2.身份证识别拍照
                    DESC
 
   spec.homepage     = "https://github.com/zyy0715/CameraTool"

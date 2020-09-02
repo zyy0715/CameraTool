@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <HSIDCard/HSIDCard.h>
+
 
 typedef NS_ENUM(NSUInteger, HSIDCardQualityScanType) {
     HSIDCardQualityScanTypeFront,
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  返回的解析信息数据
  */
-- (void)idCardScannerInfo:(HSIDCardScannerInfo*)idCardInfo image:(UIImage*)image;
+- (void)idCardScannerInfoImage:(UIImage*)image;
 
 @end
 

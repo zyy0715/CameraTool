@@ -1,6 +1,0 @@
-framework module HSIDCard {
-  umbrella header "HSIDCard.h"
-
-  export *
-  module * { export * }
-}

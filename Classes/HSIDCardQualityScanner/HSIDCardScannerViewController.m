@@ -17,16 +17,14 @@
 @interface HSIDCardScannerViewController ()
 <
 HSIDCardQualityScannerDelegate,
-HSIDCardQualityScannerControllerDelegate,
-HSIDCardScannerManagerDelegate
+HSIDCardQualityScannerControllerDelegate
 >
 @property (strong, nonatomic) HSCustomIDCardScannerController *idCardQualityScanner;
 @property (nonatomic, assign) BOOL clearAllOnFailed;
 @property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
 /** 当前图片 */
 @property (nonatomic, strong) UIImage * currentImage;
-/** SDK管理类 */
-@property (nonatomic, strong) HSIDCardScannerManager * manager;
+
 
 @end
 
@@ -108,23 +106,13 @@ HSIDCardScannerManagerDelegate
 - (void)idCardReceiveImage:(UIImage *)currentImage{
     NSLog(@"获取的图片:%@",currentImage);
     self.currentImage = currentImage;
-    self.manager = [HSIDCardScannerManager shareInstance];
-    self.manager.delegate = self;
-    ///image: 拍照后的图片,最好是截取过以后身份证照片
-    [self.manager uploadIDCardScannerImage:currentImage];
-}
-
-#pragma mark -- HSIDCardScannerManagerDelegate
-/// 返回的解析信息数据
-- (void)idCardScannerInfo:(HSIDCardScannerInfo*)idCardInfo{
-    NSLog(@"返回解析数据: %@",idCardInfo);
-    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-       [mainQueue addOperationWithBlock:^{
-           if (self.idCardScannerViewDelegate &&
-               [self.idCardScannerViewDelegate respondsToSelector:@selector(idCardScannerInfo:image:)]) {
-               [self.idCardScannerViewDelegate idCardScannerInfo:idCardInfo image:self.currentImage];
-           }
-       }];
+   NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    [mainQueue addOperationWithBlock:^{
+        if (self.idCardScannerViewDelegate &&
+            [self.idCardScannerViewDelegate respondsToSelector:@selector(idCardScannerInfoImage:)]) {
+            [self.idCardScannerViewDelegate idCardScannerInfoImage:self.currentImage];
+        }
+    }];
 }
 
 - (void)idCardQualityScannerDidCancel {
