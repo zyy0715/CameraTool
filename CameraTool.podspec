@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CameraTool"
-  spec.version      = "0.0.2"
-  spec.summary      = "A short description of CameraTool."
+  spec.version      = "0.0.3"
+  spec.summary      = "身份证拍照相机工具"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,8 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  1.分离拍照和识别逻辑
-  2.身份证拍照
+  1.添加push跳转方式支持
                    DESC
 
   spec.homepage     = "https://github.com/zyy0715/CameraTool"

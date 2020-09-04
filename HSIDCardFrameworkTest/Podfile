@@ -1,0 +1,10 @@
+platform :ios, '10.0'
+use_frameworks!
+
+
+
+target 'HSIDCardFrameworkTest' do
+
+pod 'CameraTool', :path => '/Users/farben/WorkSample/CameraTool'
+
+end

@@ -42,15 +42,17 @@ HSIDCardScannerViewControllerDelegate
     selectIndex = type;
     HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
     vc.idCardScannerViewDelegate = self;
+    vc.scanType = HSIDCardQualityScanTypeFront;
+    if (type != 1) {
+        vc.scanType = HSIDCardQualityScanTypeBack;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+    return;
     if (@available(iOS 13, *)) {
         //全屏
         vc.modalPresentationStyle = UIModalPresentationFullScreen;
         //禁用下滑返回
         vc.modalInPresentation = true;
-    }
-    vc.scanType = HSIDCardQualityScanTypeFront;
-    if (type != 1) {
-        vc.scanType = HSIDCardQualityScanTypeBack;
     }
     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal ;
     [self presentViewController:vc animated:YES completion:nil];

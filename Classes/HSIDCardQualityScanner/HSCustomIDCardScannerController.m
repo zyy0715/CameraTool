@@ -87,9 +87,18 @@ NSInteger const STIdCardScannerScanBoundary = 64;
     [self getCurrentImage:self.photoImage];
 }
 
+///返回功能判断
+- (void)backPreviousController{
+    if (self.presentingViewController||[self.navigationController.viewControllers.firstObject isEqual:self]){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 ///返回功能
 - (void)backBtnAction:(UIButton*)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self backPreviousController];
     [self stop];
 }
 - (void)getCurrentImage:(UIImage*)image{
@@ -111,7 +120,7 @@ NSInteger const STIdCardScannerScanBoundary = 64;
     if (self.videoCapture.captureSession.isRunning) {
         [self.videoCapture.captureSession stopRunning];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self backPreviousController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -251,7 +260,7 @@ NSInteger const STIdCardScannerScanBoundary = 64;
     }
     [self timerInvalidate];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self backPreviousController];
 }
 
 - (void)willResignActive {

@@ -90,7 +90,7 @@ HSIDCardQualityScannerControllerDelegate
 
 #pragma mark -- HSIDCardQualityScannerControllerDelegate
 - (void)idCardReceiveDeveiceError:(HSIDOCRIDCardQualityDeveiceError)deveiceError {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self backPreviousController];
     self.idCardQualityScanner = nil;
 
     switch (deveiceError) {
@@ -100,6 +100,14 @@ HSIDCardQualityScannerControllerDelegate
         case HSIDOCRIDCardQuality_WILL_RESIGN_ACTIVE: {
             NSString * errorMessage = @"取消检测";
         } break;
+    }
+}
+///返回功能判断
+- (void)backPreviousController{
+    if (self.presentingViewController||[self.navigationController.viewControllers.firstObject isEqual:self]){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
