@@ -118,7 +118,9 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     if (nil == _photoBtn) {
         _photoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //[_photoBtn setTitle:@"拍照" forState:UIControlStateNormal];
-        [_photoBtn setImage:[UIImage imageNamed:@"photograph"] forState:UIControlStateNormal];
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:@"photograph@2x.png" ofType:nil];
+        [_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
         _photoBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         //_photoBtn.hidden = YES;
     }
@@ -129,7 +131,9 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     if (nil == _backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //[_photoBtn setTitle:@"拍照" forState:UIControlStateNormal];
-        [_backBtn setImage:[UIImage imageNamed:@"nav_btn_back"] forState:UIControlStateNormal];
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:@"nav_btn_back@2x.png" ofType:nil];
+        [_backBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
     }
     return _backBtn;
 }
@@ -137,7 +141,9 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 - (UIImageView *)iconIV{
     if (nil == _iconIV) {
         _iconIV = [[UIImageView alloc]init];
-        _iconIV.image = [UIImage imageNamed:@"idIcon"];
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:@"idIcon@2x.png" ofType:nil];
+        _iconIV.image = [UIImage imageWithContentsOfFile:path];
         _iconIV.hidden = YES;
     }
     return _iconIV;
@@ -146,7 +152,9 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 - (UIImageView *)headIV{
     if (nil == _headIV) {
         _headIV = [[UIImageView alloc]init];
-        _headIV.image = [UIImage imageNamed:@"idHead"];
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:@"idHead@2x.png" ofType:nil];
+        _headIV.image = [UIImage imageWithContentsOfFile:path];
         _headIV.hidden = YES;
     }
     return _headIV;
