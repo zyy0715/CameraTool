@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "HSIDCardScannerViewController.h"
+#import "UIImage+IDCardExtend.h"
 @interface ViewController ()<
 HSIDCardScannerViewControllerDelegate
 >
@@ -60,8 +61,14 @@ HSIDCardScannerViewControllerDelegate
 
 #pragma mark -- HSIDCardScannerViewControllerDelegate
 - (void)idCardScannerInfoImage:(UIImage*)image{
-    NSLog(@"获取到的图片:%@",image);
-
+    NSLog(@"原始图片:%@",image);
+    UIImage *scaleImage = [UIImage imageCompressForWidth:image targetWidth:320];
+    NSLog(@"缩放图片:%@",scaleImage);
+    if (selectIndex == 1) {
+        self.frontIV.image = scaleImage;
+    }else{
+        self.backIV.image = scaleImage;
+    }
 }
 
 

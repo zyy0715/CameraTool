@@ -153,8 +153,8 @@
 		9B07F0F224FE5C0F00F004F7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
 				9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */,
+				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";

@@ -112,7 +112,6 @@
     }
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     currentImage = [UIImage getImageStream:imageBuffer];
-    NSLog(@"图片数据:%@",currentImage);
     if (self.complete) {
         self.complete(currentImage);
     }
