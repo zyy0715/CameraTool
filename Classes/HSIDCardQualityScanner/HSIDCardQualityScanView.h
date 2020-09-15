@@ -17,7 +17,12 @@
 @property (nonatomic, strong) UIImageView * headIV;
 /** 国徽图 */
 @property (nonatomic, strong) UIImageView * iconIV;
-
+/** 拍照后识别失败图片 */
+@property (nonatomic, strong) UIImageView * showIV;
+/** 错误信息label */
+@property (nonatomic, strong) UILabel * errorLabel;
+/** info图标 */
+@property (nonatomic, strong) UIImageView * infoIV;
 
 - (instancetype)initWithFrame:(CGRect)frame
                   windowFrame:(CGRect)windowFrame

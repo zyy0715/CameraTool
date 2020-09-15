@@ -60,7 +60,7 @@ HSIDCardScannerViewControllerDelegate
 }
 
 #pragma mark -- HSIDCardScannerViewControllerDelegate
-- (void)idCardScannerInfoImage:(UIImage*)image{
+- (void)idCardScannerInfoImage:(UIImage*)image result:(nonnull HSIDCardScannerInfo *)result{
     NSLog(@"原始图片:%@",image);
     UIImage *scaleImage = [UIImage imageCompressForWidth:image targetWidth:320];
     NSLog(@"缩放图片:%@",scaleImage);
@@ -69,6 +69,7 @@ HSIDCardScannerViewControllerDelegate
     }else{
         self.backIV.image = scaleImage;
     }
+    NSLog(@"名称: %@ \n身份证: %@ \n有效期(始): %@ \n有效期(终): %@",result.name,result.idCardNum,result.validStartDate,result.validEndDate);
 }
 
 

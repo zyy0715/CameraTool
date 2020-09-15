@@ -9,10 +9,15 @@
 #import "HSCustomIDCardScannerController.h"
 #import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
+
 NSInteger const STIdCardScannerScanBoundary = 64;
 
 
-@interface HSCustomIDCardScannerController ()<HSIDCardQualityVideoCaptureMangerDelegate>
+@interface HSCustomIDCardScannerController ()
+<
+HSIDCardQualityVideoCaptureMangerDelegate,
+HSIDCardScannerManagerDelegate
+>
 @property (assign, nonatomic) HSIDCardQualityCardSide cardSide;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSOperationQueue *mainQueue;
@@ -20,6 +25,8 @@ NSInteger const STIdCardScannerScanBoundary = 64;
 /** 照片 */
 @property (nonatomic, strong) UIImage * photoImage;
 
+/** SDK管理类 */
+@property (nonatomic, strong) HSIDCardScannerManager * manager;
 
 @end
 
@@ -56,6 +63,11 @@ NSInteger const STIdCardScannerScanBoundary = 64;
     [self.view addSubview:self.idCardScanView];
     [self.idCardScanView.photoBtn addTarget:self action:@selector(photoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.idCardScanView.backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    self.manager = [HSIDCardScannerManager shareInstance];
+    self.manager.delegate = self;
+    [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,15 +77,24 @@ NSInteger const STIdCardScannerScanBoundary = 64;
                                                  name:UIApplicationWillResignActiveNotification
                                                object:nil];
 }
-
+- (void)start {
+    if (!self.videoCapture.captureSession.isRunning) {
+        [self.videoCapture.captureSession startRunning];
+    }
+}
 ///拍照功能
 - (void)photoBtnAction:(UIButton*)sender{
+    NSString *title = [sender titleForState:UIControlStateNormal];
+    if ([@"重拍" containsString:title]) {
+        [self switchCurrentView:NO];
+        [self start];
+        return;
+    }
     WS(ws);
     self.videoCaptureManger.complete = ^(UIImage *image) {
         NSLog(@"图片++++++++++++");
         if (nil != image) {
-            ws.photoImage = image;
-            [ws getCurrentImage:ws.photoImage];
+            [ws getCurrentImage:image];
         }
     };
     //关闭拍照
@@ -83,8 +104,7 @@ NSInteger const STIdCardScannerScanBoundary = 64;
 #pragma mark -- HSIDCardQualityVideoCaptureMangerDelegate
 - (void)idCardReceiveImage:(UIImage*)currentImage{
     NSLog(@"+++++++获取到的图片++++++++");
-    self.photoImage = currentImage;
-    [self getCurrentImage:self.photoImage];
+    [self getCurrentImage:currentImage];
 }
 
 ///返回功能判断
@@ -102,25 +122,69 @@ NSInteger const STIdCardScannerScanBoundary = 64;
     [self stop];
 }
 - (void)getCurrentImage:(UIImage*)image{
+    self.videoCaptureManger.complete = nil;
     CGFloat widthScale = image.size.width / HSIDCardQuality_SCREEN_WIDTH;
     CGFloat heightScale = image.size.height / HSIDCardQuality_SCREEN_HEIGHT;
     CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
     image = [UIImage getSubImage:rect inImage:image];
-    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-       [mainQueue addOperationWithBlock:^{
-           if (self.idCardScannerControllerDelegate &&
-               [self.idCardScannerControllerDelegate respondsToSelector:@selector(idCardReceiveImage:)]) {
-               [self.idCardScannerControllerDelegate idCardReceiveImage:image];
-           }
-       }];
+    self.photoImage = image;
+    ///对图片进行缩放处理
+    //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
+    ///image: 拍照后的图片,最好是截取过以后身份证照片
+    [self.manager uploadIDCardScannerImage:self.photoImage];
 }
+
+///切换当前UI显示
+- (void)switchCurrentView:(BOOL)isError{
+    self.idCardScanView.showIV.hidden = !isError;
+    self.idCardScanView.infoIV.hidden = !isError;
+    self.idCardScanView.errorLabel.hidden = !isError;
+    if (isError) {
+        [self.idCardScanView.photoBtn setTitle:@"重拍" forState:UIControlStateNormal];
+    }else{
+        [self.idCardScanView.photoBtn setTitle:@"" forState:UIControlStateNormal];
+    }
+}
+
+///检测图片失败
+- (void)checkCurrentImageWithFailed:(UIImage*)image result:(HSIDCardScannerInfo*)result{
+    self.idCardScanView.showIV.image = image;
+    self.idCardScanView.errorLabel.text = [NSString stringWithFormat:@"%@",result.errMsg];
+    [self switchCurrentView:YES];
+}
+///检测图片成功
+- (void)checkCurrentImageWithSuccess:(UIImage*)image result:(HSIDCardScannerInfo*)result{
+    if (self.idCardScannerControllerDelegate &&
+        [self.idCardScannerControllerDelegate respondsToSelector:@selector(idCardReceiveImage:result:)]) {
+        [self.idCardScannerControllerDelegate idCardReceiveImage:image result:result];
+    }
+    [self backBtnAction:nil];
+}
+
+#pragma mark -- HSIDCardScannerManagerDelegate
+/// 返回的解析信息数据
+- (void)idCardScannerInfo:(HSIDCardScannerInfo*)idCardInfo{
+    NSLog(@"返回解析数据: %@",idCardInfo.errMsg);
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    [mainQueue addOperationWithBlock:^{
+        NSInteger index = idCardInfo.code;
+        NSLog(@"++++++当前数值+++++++:%@",@(index));
+       if (index == 0) {
+           [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
+       }else{
+           [self checkCurrentImageWithFailed:self.photoImage result:idCardInfo];
+       }
+    }];
+}
+
+
 
 //关闭相机
 - (void)stop{
     if (self.videoCapture.captureSession.isRunning) {
         [self.videoCapture.captureSession stopRunning];
     }
-    [self backPreviousController];
+//    [self backPreviousController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

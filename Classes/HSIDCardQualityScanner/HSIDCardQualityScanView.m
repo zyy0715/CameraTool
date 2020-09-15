@@ -53,7 +53,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     [_noticeLabel setBackgroundColor:[UIColor clearColor]];
     [_noticeLabel setTextColor:[UIColor whiteColor]];
     [_noticeLabel setFont:[UIFont systemFontOfSize:STIdCardViewLabelFrontSize]];
-    [_noticeLabel setFrame:CGRectMake(CGRectGetMinX(self.windowFrame), CGRectGetMaxY(self.windowFrame)+10, CGRectGetWidth(self.windowFrame), 80)];
+    [_noticeLabel setFrame:CGRectMake(CGRectGetMinX(self.windowFrame), CGRectGetMaxY(self.windowFrame)+5, CGRectGetWidth(self.windowFrame), 60)];
     [_noticeLabel setTextAlignment:NSTextAlignmentLeft];
     [_noticeLabel setNumberOfLines:5];
 
@@ -88,6 +88,15 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     [self.iconIV setCenter:CGPointMake(gx, gy)];
     [self addSubview:self.iconIV];
 
+    [self.showIV setFrame:self.windowFrame];
+    [self addSubview:self.showIV];
+
+    [self.errorLabel setFrame:CGRectMake(0, 0, 180, 40)];
+    [self.errorLabel setCenter:CGPointMake(CGRectGetMidX(self.frame)+10, CGRectGetMinY(self.photoBtn.frame)-20)];
+    [self addSubview:self.errorLabel];
+
+    [self.infoIV setCenter:CGPointMake(CGRectGetMinX(self.errorLabel.frame)-10 ,CGRectGetMidY(self.errorLabel.frame))];
+    [self addSubview:self.infoIV];
     return self;
 }
 
@@ -117,10 +126,12 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 - (UIButton *)photoBtn{
     if (nil == _photoBtn) {
         _photoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //[_photoBtn setTitle:@"拍照" forState:UIControlStateNormal];
+        [_photoBtn setTitle:@"" forState:UIControlStateNormal];
+        [_photoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"photograph@2x.png" ofType:nil];
-        [_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
+        //[_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
+        [_photoBtn setBackgroundImage:[UIImage imageWithContentsOfFile:path]  forState:UIControlStateNormal];
         _photoBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         //_photoBtn.hidden = YES;
     }
@@ -130,7 +141,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 - (UIButton *)backBtn{
     if (nil == _backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //[_photoBtn setTitle:@"拍照" forState:UIControlStateNormal];
+
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"nav_btn_back@2x.png" ofType:nil];
         [_backBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
@@ -158,6 +169,37 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
         _headIV.hidden = YES;
     }
     return _headIV;
+}
+- (UIImageView *)showIV{
+    if (nil == _showIV) {
+        _showIV = [[UIImageView alloc]init];
+        _showIV.hidden = YES;
+    }
+    return _showIV;
+}
+- (UIImageView *)infoIV{
+    if (nil == _infoIV) {
+        _infoIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
+        _infoIV.hidden = YES;
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:@"tips_icon@3x.png" ofType:nil];
+        _infoIV.image = [UIImage imageWithContentsOfFile:path];
+    }
+    return _infoIV;
+}
+- (UILabel *)errorLabel{
+    if (nil == _errorLabel) {
+        _errorLabel = [[UILabel alloc]init];
+        _errorLabel.hidden = YES;
+        _errorLabel.text = @"证件内容无效,请重新上传";
+        [_errorLabel setBackgroundColor:[UIColor clearColor]];
+        [_errorLabel setTextColor:[UIColor whiteColor]];
+        [_errorLabel setFont:[UIFont systemFontOfSize:STIdCardViewLabelFrontSize]];
+        [_errorLabel setNumberOfLines:2];
+        [_errorLabel setTextAlignment:NSTextAlignmentCenter];
+        [_errorLabel sizeToFit];
+    }
+    return _errorLabel;
 }
 
 

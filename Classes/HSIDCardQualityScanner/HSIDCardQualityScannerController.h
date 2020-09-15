@@ -11,10 +11,12 @@
 #import "HSIDCardQualityVideoCaptureManger.h"
 #import "HSIDCardQualityBaseScanView.h"
 #import "HSOCRIDCardQualityEnumTypeHeader.h"
+#import <HSIDCard/HSIDCard.h>
+
 @protocol HSIDCardQualityScannerControllerDelegate <NSObject>
 
 - (void)idCardReceiveDeveiceError:(HSIDOCRIDCardQualityDeveiceError)deveiceError;
-- (void)idCardReceiveImage:(UIImage*)currentImage;
+- (void)idCardReceiveImage:(UIImage*)currentImage result:(HSIDCardScannerInfo*)result;
 
 @end
 

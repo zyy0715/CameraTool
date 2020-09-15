@@ -34,6 +34,9 @@
 		9B0810EE24FD026D0065E702 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810ED24FD026D0065E702 /* main.m */; };
 		9B0810F824FD026D0065E702 /* HSIDCardFrameworkTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */; };
 		9B08110324FD026D0065E702 /* HSIDCardFrameworkTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */; };
+		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
+		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
+		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,19 +55,6 @@
 			remoteInfo = HSIDCardFrameworkTest;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9B08112D24FD03E90065E702 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IDCardExtend.m"; sourceTree = "<group>"; };
@@ -113,6 +103,9 @@
 		9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSIDCardFrameworkTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDCardFrameworkTestUITests.m; sourceTree = "<group>"; };
 		9B08110424FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
+		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
+		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +187,8 @@
 				9B07F10D24FE5C0F00F004F7 /* nav_btn_back@3x.png */,
 				9B07F10E24FE5C0F00F004F7 /* nav_btn_back.png */,
 				9B07F10F24FE5C0F00F004F7 /* idHead.png */,
+				9B67B4542510A15B00DF4DED /* tips_icon@2x.png */,
+				9B67B4552510A15B00DF4DED /* tips_icon@3x.png */,
 				9B07F11024FE5C0F00F004F7 /* photograph@3x.png */,
 				9B07F11124FE5C0F00F004F7 /* photograph@2x.png */,
 				9B07F11224FE5C0F00F004F7 /* idHead@2x.png */,
@@ -229,6 +225,7 @@
 				9B0810DC24FD026A0065E702 /* AppDelegate.m */,
 				9B0810E124FD026A0065E702 /* ViewController.h */,
 				9B0810E224FD026A0065E702 /* ViewController.m */,
+				9B67B4512510602100DF4DED /* HSIDCard */,
 				9B07F0F124FE5C0F00F004F7 /* Classes */,
 				9B07F10824FE5C0F00F004F7 /* Resources */,
 				9B0810E424FD026A0065E702 /* Main.storyboard */,
@@ -258,6 +255,15 @@
 			path = HSIDCardFrameworkTestUITests;
 			sourceTree = "<group>";
 		};
+		9B67B4512510602100DF4DED /* HSIDCard */ = {
+			isa = PBXGroup;
+			children = (
+				9B67B4522510602100DF4DED /* HSIDCard.framework */,
+			);
+			name = HSIDCard;
+			path = ../../HSIDCard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,7 +274,6 @@
 				9B0810D424FD026A0065E702 /* Sources */,
 				9B0810D524FD026A0065E702 /* Frameworks */,
 				9B0810D624FD026A0065E702 /* Resources */,
-				9B08112D24FD03E90065E702 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,12 +373,14 @@
 				9B07F12424FE5C0F00F004F7 /* photograph@3x.png in Resources */,
 				9B07F12124FE5C0F00F004F7 /* nav_btn_back@3x.png in Resources */,
 				9B0810EB24FD026D0065E702 /* LaunchScreen.storyboard in Resources */,
+				9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */,
 				9B07F12724FE5C0F00F004F7 /* idHead@3x.png in Resources */,
 				9B07F11D24FE5C0F00F004F7 /* idIcon@3x.png in Resources */,
 				9B0810E824FD026D0065E702 /* Assets.xcassets in Resources */,
 				9B07F12024FE5C0F00F004F7 /* nav_btn_back@2x.png in Resources */,
 				9B07F11F24FE5C0F00F004F7 /* idIcon@2x.png in Resources */,
 				9B07F12524FE5C0F00F004F7 /* photograph@2x.png in Resources */,
+				9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */,
 				9B0810E624FD026A0065E702 /* Main.storyboard in Resources */,
 				9B07F12624FE5C0F00F004F7 /* idHead@2x.png in Resources */,
 			);
@@ -585,12 +592,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HSIDCardFrameworkTest",
+					/Users/farben/WorkSample/CameraTool/HSIDCard,
 				);
 				INFOPLIST_FILE = HSIDCardFrameworkTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
 				PRODUCT_NAME = "HSIDCard集成demo";
@@ -608,12 +621,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HSIDCardFrameworkTest",
+					/Users/farben/WorkSample/CameraTool/HSIDCard,
 				);
 				INFOPLIST_FILE = HSIDCardFrameworkTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
 				PRODUCT_NAME = "HSIDCard集成demo";

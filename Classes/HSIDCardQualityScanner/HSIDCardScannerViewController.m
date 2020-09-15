@@ -7,7 +7,7 @@
 //
 
 #import "HSIDCardScannerViewController.h"
-#import "HSCustomIDCardScannerController.h"
+
 #import "UIImage+IDCardExtend.h"
 
 
@@ -33,6 +33,20 @@ HSIDCardQualityScannerControllerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCamcraSetting];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.presentingViewController||[self.navigationController.viewControllers.firstObject isEqual:self]){
+    }else{
+        self.navigationController.navigationBarHidden = YES;
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if (self.presentingViewController||[self.navigationController.viewControllers.firstObject isEqual:self]){
+    }else{
+        self.navigationController.navigationBarHidden = NO;
+    }
 }
 
 ///初始化相机设置
@@ -111,14 +125,14 @@ HSIDCardQualityScannerControllerDelegate
     }
 }
 
-- (void)idCardReceiveImage:(UIImage *)currentImage{
+- (void)idCardReceiveImage:(UIImage *)currentImage result:(HSIDCardScannerInfo *)result{
     NSLog(@"获取的图片:%@",currentImage);
     self.currentImage = currentImage;
    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
     [mainQueue addOperationWithBlock:^{
         if (self.idCardScannerViewDelegate &&
-            [self.idCardScannerViewDelegate respondsToSelector:@selector(idCardScannerInfoImage:)]) {
-            [self.idCardScannerViewDelegate idCardScannerInfoImage:self.currentImage];
+            [self.idCardScannerViewDelegate respondsToSelector:@selector(idCardScannerInfoImage:result:)]) {
+            [self.idCardScannerViewDelegate idCardScannerInfoImage:self.currentImage result:result];
         }
     }];
 }
