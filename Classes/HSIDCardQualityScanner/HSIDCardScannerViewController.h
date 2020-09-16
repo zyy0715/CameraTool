@@ -10,9 +10,9 @@
 #import "HSCustomIDCardScannerController.h"
 
 typedef NS_ENUM(NSUInteger, HSIDCardQualityScanType) {
-    HSIDCardQualityScanTypeFront,
-    HSIDCardQualityScanTypeBack,
-    HSIDCardQualityScanTypeOther,
+    HSIDCardQualityScanTypeFront,//身份证正面拍照
+    HSIDCardQualityScanTypeBack, //身份证背面拍照
+    HSIDCardQualityScanTypeOther,//其他证件拍照,仅返回,不做识别
 };
 
 NS_ASSUME_NONNULL_BEGIN

@@ -63,6 +63,10 @@ HSIDCardQualityScannerControllerDelegate
             scanSide = HSIDCardQualityCardSideScanBack;
             scanMode = HSIDCardQualityScanModeSingle;
             break;
+        case HSIDCardQualityScanTypeOther:
+            scanSide = HSIDCardQualityCardSideScanAuto;
+            scanMode = HSIDCardQualityScanModeSingle;
+        break;
         default:
             break;
     }

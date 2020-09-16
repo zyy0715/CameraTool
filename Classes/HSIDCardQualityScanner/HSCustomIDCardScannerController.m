@@ -24,6 +24,8 @@ HSIDCardScannerManagerDelegate
 @property (nonatomic, strong) UILabel *label;
 /** 照片 */
 @property (nonatomic, strong) UIImage * photoImage;
+/** 显示拍照正反面 */
+@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
 
 /** SDK管理类 */
 @property (nonatomic, strong) HSIDCardScannerManager * manager;
@@ -128,6 +130,17 @@ HSIDCardScannerManagerDelegate
     CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
     image = [UIImage getSubImage:rect inImage:image];
     self.photoImage = image;
+
+    if (self.scanSide == HSIDCardQualityCardSideScanAuto) {
+        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+        [mainQueue addOperationWithBlock:^{
+            HSIDCardScannerInfo *idCardInfo = [[HSIDCardScannerInfo alloc]init];
+            idCardInfo.code = 0;
+            idCardInfo.errMsg = @"其他证件拍照,无需识别";
+            [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
+        }];
+        return;
+    }
     ///对图片进行缩放处理
     //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     ///image: 拍照后的图片,最好是截取过以后身份证照片
@@ -200,6 +213,7 @@ HSIDCardScannerManagerDelegate
 - (void)setScanSide:(HSIDCardQualityScanSide)scanSide
             scanMode:(HSIDCardQualityScanMode)scanMode
     clearAllOnFailed:(BOOL)clearAllOnFailed {
+    self.scanSide = scanSide;
     [self refreshScanSideTextWithSide:scanSide];
 }
 

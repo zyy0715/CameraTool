@@ -88,7 +88,8 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     [self.iconIV setCenter:CGPointMake(gx, gy)];
     [self addSubview:self.iconIV];
 
-    [self.showIV setFrame:self.windowFrame];
+    [self.showIV setFrame:CGRectMake(0, 0, CGRectGetWidth(self.windowFrame)+5, CGRectGetHeight(self.windowFrame)+5)];
+    [self.showIV setCenter: CGPointMake(CGRectGetMidX(self.windowFrame), CGRectGetMidY(self.windowFrame))];
     [self addSubview:self.showIV];
 
     [self.errorLabel setFrame:CGRectMake(0, 0, 180, 40)];
