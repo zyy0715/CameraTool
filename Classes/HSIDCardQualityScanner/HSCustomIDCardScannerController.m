@@ -30,6 +30,9 @@ HSIDCardScannerManagerDelegate
 /** SDK管理类 */
 @property (nonatomic, strong) HSIDCardScannerManager * manager;
 
+/** 图片传回block */
+@property (nonatomic, copy) Completed block;
+
 @end
 
 @implementation HSCustomIDCardScannerController
@@ -70,6 +73,8 @@ HSIDCardScannerManagerDelegate
     self.manager.delegate = self;
     [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
 
+
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,15 +98,17 @@ HSIDCardScannerManagerDelegate
         return;
     }
     WS(ws);
-    self.videoCaptureManger.complete = ^(UIImage *image) {
+    self.block = ^(UIImage *image) {
         NSLog(@"图片++++++++++++");
         if (nil != image) {
+            [ws performSelector:@selector(stop) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
             [ws getCurrentImage:image];
         }
     };
-    //关闭拍照
-    [self stop];
+    self.videoCaptureManger.complete = self.block;
 
+     //关闭拍照
+//     [self stop];
 }
 #pragma mark -- HSIDCardQualityVideoCaptureMangerDelegate
 - (void)idCardReceiveImage:(UIImage*)currentImage{
@@ -144,7 +151,10 @@ HSIDCardScannerManagerDelegate
     ///对图片进行缩放处理
     //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     ///image: 拍照后的图片,最好是截取过以后身份证照片
-    [self.manager uploadIDCardScannerImage:self.photoImage];
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    [mainQueue addOperationWithBlock:^{
+        [self.manager uploadIDCardScannerImage:self.photoImage];
+    }];
 }
 
 ///切换当前UI显示
@@ -197,7 +207,6 @@ HSIDCardScannerManagerDelegate
     if (self.videoCapture.captureSession.isRunning) {
         [self.videoCapture.captureSession stopRunning];
     }
-//    [self backPreviousController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
