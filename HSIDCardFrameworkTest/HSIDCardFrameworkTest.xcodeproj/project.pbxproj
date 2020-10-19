@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3513D97BDDC15B6BE5AF8D19 /* libPods-HSIDCardFrameworkTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8A36F916D6F05E7647E074 /* libPods-HSIDCardFrameworkTest.a */; };
 		9B07F11424FE5C0F00F004F7 /* UIImage+IDCardExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */; };
 		9B07F11524FE5C0F00F004F7 /* HSIDCardQualityScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0F924FE5C0F00F004F7 /* HSIDCardQualityScannerController.m */; };
 		9B07F11624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B07F0FA24FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m */; };
@@ -37,6 +38,9 @@
 		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
 		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
 		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
+		9BCB319B253D40B1006543BE /* HSTensorFlowLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */; };
+		9BCB31F7253D90D0006543BE /* output_graph_card.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB31F5253D90D0006543BE /* output_graph_card.tflite */; };
+		9BCB31F8253D90D0006543BE /* output_labels_card.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB31F6253D90D0006543BE /* output_labels_card.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		652917916BECA42F4D54F8ED /* Pods-HSIDCardFrameworkTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSIDCardFrameworkTest.release.xcconfig"; path = "Target Support Files/Pods-HSIDCardFrameworkTest/Pods-HSIDCardFrameworkTest.release.xcconfig"; sourceTree = "<group>"; };
+		8F8A36F916D6F05E7647E074 /* libPods-HSIDCardFrameworkTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HSIDCardFrameworkTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IDCardExtend.m"; sourceTree = "<group>"; };
 		9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IDCardExtend.h"; sourceTree = "<group>"; };
 		9B07F0F624FE5C0F00F004F7 /* HSIDCardQualityVideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSIDCardQualityVideoCapture.h; sourceTree = "<group>"; };
@@ -106,6 +112,11 @@
 		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
 		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
+		9BCB3199253D40B1006543BE /* HSTensorFlowLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTensorFlowLiteManager.h; sourceTree = "<group>"; };
+		9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSTensorFlowLiteManager.m; sourceTree = "<group>"; };
+		9BCB31F5253D90D0006543BE /* output_graph_card.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = output_graph_card.tflite; sourceTree = "<group>"; };
+		9BCB31F6253D90D0006543BE /* output_labels_card.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output_labels_card.txt; sourceTree = "<group>"; };
+		E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSIDCardFrameworkTest.debug.xcconfig"; path = "Target Support Files/Pods-HSIDCardFrameworkTest/Pods-HSIDCardFrameworkTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */,
+				3513D97BDDC15B6BE5AF8D19 /* libPods-HSIDCardFrameworkTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10ABB67959CB72708AAA5F3A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */,
+				652917916BECA42F4D54F8ED /* Pods-HSIDCardFrameworkTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9B07F0F124FE5C0F00F004F7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +170,8 @@
 			children = (
 				9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */,
 				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
+				9BCB3199253D40B1006543BE /* HSTensorFlowLiteManager.h */,
+				9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -205,6 +228,8 @@
 				9B0810F624FD026D0065E702 /* HSIDCardFrameworkTestTests */,
 				9B08110124FD026D0065E702 /* HSIDCardFrameworkTestUITests */,
 				9B0810D924FD026A0065E702 /* Products */,
+				10ABB67959CB72708AAA5F3A /* Pods */,
+				F0C34347ED633F890C5A06AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +250,7 @@
 				9B0810DC24FD026A0065E702 /* AppDelegate.m */,
 				9B0810E124FD026A0065E702 /* ViewController.h */,
 				9B0810E224FD026A0065E702 /* ViewController.m */,
+				9BCB31F4253D90C3006543BE /* Datas */,
 				9B67B4512510602100DF4DED /* HSIDCard */,
 				9B07F0F124FE5C0F00F004F7 /* Classes */,
 				9B07F10824FE5C0F00F004F7 /* Resources */,
@@ -264,6 +290,23 @@
 			path = ../../HSIDCard;
 			sourceTree = "<group>";
 		};
+		9BCB31F4253D90C3006543BE /* Datas */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB31F5253D90D0006543BE /* output_graph_card.tflite */,
+				9BCB31F6253D90D0006543BE /* output_labels_card.txt */,
+			);
+			path = Datas;
+			sourceTree = "<group>";
+		};
+		F0C34347ED633F890C5A06AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F8A36F916D6F05E7647E074 /* libPods-HSIDCardFrameworkTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +314,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B08110724FD026D0065E702 /* Build configuration list for PBXNativeTarget "HSIDCardFrameworkTest" */;
 			buildPhases = (
+				4695DF2CDB6EA13ABD49DAE9 /* [CP] Check Pods Manifest.lock */,
 				9B0810D424FD026A0065E702 /* Sources */,
 				9B0810D524FD026A0065E702 /* Frameworks */,
 				9B0810D624FD026A0065E702 /* Resources */,
@@ -369,6 +413,8 @@
 			files = (
 				9B07F12324FE5C0F00F004F7 /* idHead.png in Resources */,
 				9B07F11E24FE5C0F00F004F7 /* idIcon.png in Resources */,
+				9BCB31F8253D90D0006543BE /* output_labels_card.txt in Resources */,
+				9BCB31F7253D90D0006543BE /* output_graph_card.tflite in Resources */,
 				9B07F12224FE5C0F00F004F7 /* nav_btn_back.png in Resources */,
 				9B07F12424FE5C0F00F004F7 /* photograph@3x.png in Resources */,
 				9B07F12124FE5C0F00F004F7 /* nav_btn_back@3x.png in Resources */,
@@ -402,6 +448,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4695DF2CDB6EA13ABD49DAE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HSIDCardFrameworkTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B0810D424FD026A0065E702 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -410,6 +481,7 @@
 				9B07F11424FE5C0F00F004F7 /* UIImage+IDCardExtend.m in Sources */,
 				9B07F11724FE5C0F00F004F7 /* HSIDCardQualityScanView.m in Sources */,
 				9B07F11524FE5C0F00F004F7 /* HSIDCardQualityScannerController.m in Sources */,
+				9BCB319B253D40B1006543BE /* HSTensorFlowLiteManager.m in Sources */,
 				9B0810E324FD026A0065E702 /* ViewController.m in Sources */,
 				9B0810DD24FD026A0065E702 /* AppDelegate.m in Sources */,
 				9B07F11624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m in Sources */,
@@ -584,6 +656,7 @@
 		};
 		9B08110824FD026D0065E702 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -614,6 +687,7 @@
 		};
 		9B08110924FD026D0065E702 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 652917916BECA42F4D54F8ED /* Pods-HSIDCardFrameworkTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

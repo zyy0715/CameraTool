@@ -10,12 +10,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import "HSIDCardQualityScanEnumHeader.h"
 
-typedef void(^Completed)(UIImage *image);
+typedef void(^Completed)(UIImage *image,CMSampleBufferRef sampleBuffer);
 
 
 @protocol HSIDCardQualityVideoCaptureMangerDelegate <NSObject>
 
-- (void)idCardReceiveImage:(UIImage*)currentImage;
+- (void)idCardReceiveImage:(UIImage*)currentImage outputSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 
 @end
 
@@ -37,6 +37,9 @@ typedef void(^Completed)(UIImage *image);
 /** 定时器 */
 @property (nonatomic, strong) NSTimer * timer;
 
+//延时识别
+@property (nonatomic, assign) NSTimeInterval previousTime;
+@property (nonatomic, assign) NSTimeInterval delayBetweenMs;
 
 - (void)setVideoOrientation:(AVCaptureVideoOrientation)orientation;
 - (CGRect)getMaskFrame;

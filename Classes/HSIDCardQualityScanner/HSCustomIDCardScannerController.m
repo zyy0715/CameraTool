@@ -9,7 +9,7 @@
 #import "HSCustomIDCardScannerController.h"
 #import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
-
+#import "HSTensorFlowLiteManager.h"
 NSInteger const STIdCardScannerScanBoundary = 64;
 
 
@@ -32,6 +32,13 @@ HSIDCardScannerManagerDelegate
 
 /** 图片传回block */
 @property (nonatomic, copy) Completed block;
+
+/** Tensorflowlite */
+@property (nonatomic, strong) HSTensorFlowLiteManager * TFLManager;
+
+
+/** 图片 */
+@property (nonatomic, strong) UIImageView * bgIV;
 
 @end
 
@@ -66,6 +73,8 @@ HSIDCardScannerManagerDelegate
                                                              orientation:super.interfaceOrientation];
     self.idCardScanView.cardScanViewDelegate = self;
     [self.view addSubview:self.idCardScanView];
+    
+    self.idCardScanView.photoBtn.hidden = YES;
     [self.idCardScanView.photoBtn addTarget:self action:@selector(photoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.idCardScanView.backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -74,6 +83,11 @@ HSIDCardScannerManagerDelegate
     [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
 
 
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat dWidth = 224;
+    
+    self.bgIV = [[UIImageView alloc]initWithFrame:CGRectMake((width-dWidth)/2.0, 300, dWidth, dWidth)];
+    [self.view addSubview:self.bgIV];
 
 }
 
@@ -98,11 +112,11 @@ HSIDCardScannerManagerDelegate
         return;
     }
     WS(ws);
-    self.block = ^(UIImage *image) {
+    self.block = ^(UIImage *image,CMSampleBufferRef sampleBuffer) {
         NSLog(@"图片++++++++++++");
         if (nil != image) {
             [ws performSelector:@selector(stop) onThread:[NSThread mainThread] withObject:nil waitUntilDone:NO];
-            [ws getCurrentImage:image];
+            [ws getCurrentImage:image outputSampleBuffer:sampleBuffer];
         }
     };
     self.videoCaptureManger.complete = self.block;
@@ -111,9 +125,9 @@ HSIDCardScannerManagerDelegate
 //     [self stop];
 }
 #pragma mark -- HSIDCardQualityVideoCaptureMangerDelegate
-- (void)idCardReceiveImage:(UIImage*)currentImage{
+- (void)idCardReceiveImage:(UIImage*)currentImage outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
     NSLog(@"+++++++获取到的图片++++++++");
-    [self getCurrentImage:currentImage];
+    [self getCurrentImage:currentImage outputSampleBuffer:sampleBuffer];
 }
 
 ///返回功能判断
@@ -130,31 +144,55 @@ HSIDCardScannerManagerDelegate
     [self backPreviousController];
     [self stop];
 }
-- (void)getCurrentImage:(UIImage*)image{
-    self.videoCaptureManger.complete = nil;
+- (void)getCurrentImage:(UIImage*)image  outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
+    //self.videoCaptureManger.complete = nil;
     CGFloat widthScale = image.size.width / HSIDCardQuality_SCREEN_WIDTH;
     CGFloat heightScale = image.size.height / HSIDCardQuality_SCREEN_HEIGHT;
     CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
+    NSLog(@"切图: %@",NSStringFromCGRect(rect));
     image = [UIImage getSubImage:rect inImage:image];
     self.photoImage = image;
-
-    if (self.scanSide == HSIDCardQualityCardSideScanAuto) {
-        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-        [mainQueue addOperationWithBlock:^{
-            HSIDCardScannerInfo *idCardInfo = [[HSIDCardScannerInfo alloc]init];
-            idCardInfo.code = 0;
-            idCardInfo.errMsg = @"其他证件拍照,无需识别";
-            [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
-        }];
+    CVPixelBufferRef pixelBuffer = [self.TFLManager createImage:image scaleSize:CGSizeMake(224, 224) PixelBufferRef:sampleBuffer];
+    UIImage *scaleImage = [self.TFLManager imageFromSampleBuffer:pixelBuffer];
+    [self.TFLManager inputTensorAtIndex:0 withBuffer:pixelBuffer shape:0];
+    TFLTensor *outputTensor = [self.TFLManager outputTensorAtIndex:0];
+    NSArray *results = [self.TFLManager transTFLTensorOutputData:outputTensor withName:outputTensor.name];
+    if (results.count == 0) {
         return;
     }
+    NSDictionary *result = results.firstObject;
+    NSString *className = result[TFLClassNameKey];
+    NSNumber *condince = result[TFLConfidenceKey];
+    NSLog(@"结果集:%@",results);
+    NSLog(@"结果:%@ -- 概率:%@",className,condince);
+    if ([@"front" isEqualToString:className]&&(self.scanSide == HSIDCardQualityCardSideScanFront)) {
+        
+    }else if ([@"reverse" isEqualToString:className]&&(self.scanSide == HSIDCardQualityCardSideScanFront)){
+        
+    }else{
+        
+//        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+//        [mainQueue addOperationWithBlock:^{
+//            HSIDCardScannerInfo *idCardInfo = [[HSIDCardScannerInfo alloc]init];
+//            idCardInfo.code = 0;
+//            idCardInfo.errMsg = @"其他证件拍照,无需识别";
+//            [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
+//        }];
+//        return;
+        
+    }
     ///对图片进行缩放处理
-    //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
-    ///image: 拍照后的图片,最好是截取过以后身份证照片
+    self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
     [mainQueue addOperationWithBlock:^{
-        [self.manager uploadIDCardScannerImage:self.photoImage];
+        self.bgIV.image = scaleImage;
     }];
+    
+    ///image: 拍照后的图片,最好是截取过以后身份证照片
+//    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+//    [mainQueue addOperationWithBlock:^{
+//        [self.manager uploadIDCardScannerImage:self.photoImage];
+//    }];
 }
 
 ///切换当前UI显示
@@ -375,7 +413,14 @@ HSIDCardScannerManagerDelegate
     return @"unknow";
 }
 
+///添加模型识别
 
+- (HSTensorFlowLiteManager *)TFLManager{
+    if (nil == _TFLManager) {
+        _TFLManager = [HSTensorFlowLiteManager shareInstance];
+    }
+    return _TFLManager;
+}
 
 
 

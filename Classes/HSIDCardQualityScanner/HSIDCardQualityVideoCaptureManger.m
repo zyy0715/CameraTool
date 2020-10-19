@@ -15,6 +15,8 @@
 #include "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
 
+
+
 @interface HSIDCardQualityVideoCaptureManger () <AVCaptureVideoDataOutputSampleBufferDelegate> {
     dispatch_queue_t queue;
     volatile uint32_t state;
@@ -48,6 +50,9 @@
         self.isVideoStreamEnable = YES;
         signal = dispatch_semaphore_create(0);
         overTime = dispatch_time(DISPATCH_TIME_NOW, 4.0f * NSEC_PER_SEC);
+        //初始化一些参数
+        self.previousTime = [[NSDate distantPast] timeIntervalSince1970] *1000;
+        self.delayBetweenMs = 1000;
     }
     return self;
 }
@@ -91,11 +96,11 @@
     NSLog(@"Timer %@", [NSThread currentThread]);
     if (nil != currentImage) {
         if (self.complete) {
-            self.complete(currentImage);
+            self.complete(currentImage,nil);
         }
         if (self.idCardCaptureManagerDelegate &&
-            [self.idCardCaptureManagerDelegate respondsToSelector:@selector(idCardReceiveImage:)]) {
-            [self.idCardCaptureManagerDelegate idCardReceiveImage:currentImage];
+            [self.idCardCaptureManagerDelegate respondsToSelector:@selector(idCardReceiveImage:outputSampleBuffer:)]) {
+            [self.idCardCaptureManagerDelegate idCardReceiveImage:currentImage outputSampleBuffer:nil];
         }
     }
 }
@@ -103,6 +108,12 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput //! OCLint
     didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
            fromConnection:(AVCaptureConnection *)connection { //! OCLint
+    NSTimeInterval curentInterval = [[NSDate date] timeIntervalSince1970] * 1000;
+    if (curentInterval - self.previousTime < self.delayBetweenMs) {
+       return;
+    }
+    self.previousTime = [[NSDate date] timeIntervalSince1970] *1000;
+    
     if (!self.isVideoStreamEnable) {
         return;
     }
@@ -112,14 +123,21 @@
     }
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     currentImage = [UIImage getImageStream:imageBuffer];
-    if (self.complete) {
-        NSLog(@"获取图片数据");
-        self.complete(currentImage);
+    NSLog(@"原始图片:%@",currentImage);
+//    if (self.complete) {
+//        NSLog(@"获取图片数据");
+//        self.complete(currentImage,sampleBuffer);
+//    }
+    
+    if (self.idCardCaptureManagerDelegate &&
+        [self.idCardCaptureManagerDelegate respondsToSelector:@selector(idCardReceiveImage:outputSampleBuffer:)]) {
+        [self.idCardCaptureManagerDelegate idCardReceiveImage:currentImage outputSampleBuffer:sampleBuffer];
     }
+    
+    
 }
 
 - (void)captureOutput:(AVCaptureOutput *)output didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
-    
 }
 
 - (void)recognizeWithSampleBuffer:(CMSampleBufferRef)sampleBuffer {
