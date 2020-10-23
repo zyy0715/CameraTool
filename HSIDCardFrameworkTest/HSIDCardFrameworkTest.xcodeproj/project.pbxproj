@@ -35,6 +35,8 @@
 		9B0810EE24FD026D0065E702 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810ED24FD026D0065E702 /* main.m */; };
 		9B0810F824FD026D0065E702 /* HSIDCardFrameworkTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */; };
 		9B08110324FD026D0065E702 /* HSIDCardFrameworkTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */; };
+		9B3C0EED254180550027FBE8 /* DataConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C0EEC254180550027FBE8 /* DataConvert.swift */; };
+		9B3C0EEF2541809D0027FBE8 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */; };
 		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
 		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
 		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
@@ -93,7 +95,7 @@
 		9B07F11124FE5C0F00F004F7 /* photograph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photograph@2x.png"; sourceTree = "<group>"; };
 		9B07F11224FE5C0F00F004F7 /* idHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@2x.png"; sourceTree = "<group>"; };
 		9B07F11324FE5C0F00F004F7 /* idHead@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@3x.png"; sourceTree = "<group>"; };
-		9B0810D824FD026A0065E702 /* OCR集成.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OCR集成.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0810D824FD026A0065E702 /* OCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0810DB24FD026A0065E702 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B0810DC24FD026A0065E702 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9B0810E124FD026A0065E702 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -109,6 +111,10 @@
 		9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSIDCardFrameworkTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDCardFrameworkTestUITests.m; sourceTree = "<group>"; };
 		9B08110424FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B3C0EEB254180550027FBE8 /* HSIDCardFrameworkTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSIDCardFrameworkTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		9B3C0EEC254180550027FBE8 /* DataConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvert.swift; sourceTree = "<group>"; };
+		9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		9B3C0EF0254193360027FBE8 /* output_graph_card_32.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = output_graph_card_32.tflite; sourceTree = "<group>"; };
 		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
 		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
@@ -170,8 +176,11 @@
 			children = (
 				9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */,
 				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
+				9B3C0EEC254180550027FBE8 /* DataConvert.swift */,
+				9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */,
 				9BCB3199253D40B1006543BE /* HSTensorFlowLiteManager.h */,
 				9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */,
+				9B3C0EEB254180550027FBE8 /* HSIDCardFrameworkTest-Bridging-Header.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -236,7 +245,7 @@
 		9B0810D924FD026A0065E702 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B0810D824FD026A0065E702 /* OCR集成.app */,
+				9B0810D824FD026A0065E702 /* OCR.app */,
 				9B0810F324FD026D0065E702 /* HSIDCardFrameworkTestTests.xctest */,
 				9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */,
 			);
@@ -294,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				9BCB31F5253D90D0006543BE /* output_graph_card.tflite */,
+				9B3C0EF0254193360027FBE8 /* output_graph_card_32.tflite */,
 				9BCB31F6253D90D0006543BE /* output_labels_card.txt */,
 			);
 			path = Datas;
@@ -325,7 +335,7 @@
 			);
 			name = HSIDCardFrameworkTest;
 			productName = HSIDCardFrameworkTest;
-			productReference = 9B0810D824FD026A0065E702 /* OCR集成.app */;
+			productReference = 9B0810D824FD026A0065E702 /* OCR.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9B0810F224FD026D0065E702 /* HSIDCardFrameworkTestTests */ = {
@@ -375,6 +385,7 @@
 				TargetAttributes = {
 					9B0810D724FD026A0065E702 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 					9B0810F224FD026D0065E702 = {
 						CreatedOnToolsVersion = 11.5;
@@ -489,7 +500,9 @@
 				9B07F11A24FE5C0F00F004F7 /* HSIDCardScannerViewController.m in Sources */,
 				9B07F11824FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m in Sources */,
 				9B0810EE24FD026D0065E702 /* main.m in Sources */,
+				9B3C0EEF2541809D0027FBE8 /* ArrayExtension.swift in Sources */,
 				9B07F11B24FE5C0F00F004F7 /* HSCustomIDCardScannerController.m in Sources */,
+				9B3C0EED254180550027FBE8 /* DataConvert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,8 +672,10 @@
 			baseConfigurationReference = E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -680,7 +695,10 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
-				PRODUCT_NAME = "OCR集成";
+				PRODUCT_NAME = OCR;
+				SWIFT_OBJC_BRIDGING_HEADER = "../Classes/Tools/HSIDCardFrameworkTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -690,8 +708,10 @@
 			baseConfigurationReference = 652917916BECA42F4D54F8ED /* Pods-HSIDCardFrameworkTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -710,7 +730,9 @@
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
-				PRODUCT_NAME = "OCR集成";
+				PRODUCT_NAME = OCR;
+				SWIFT_OBJC_BRIDGING_HEADER = "../Classes/Tools/HSIDCardFrameworkTest-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -718,6 +740,7 @@
 		9B08110B24FD026D0065E702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
@@ -738,6 +761,7 @@
 		9B08110C24FD026D0065E702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
@@ -758,6 +782,7 @@
 		9B08110E24FD026D0065E702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;
@@ -776,6 +801,7 @@
 		9B08110F24FD026D0065E702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;

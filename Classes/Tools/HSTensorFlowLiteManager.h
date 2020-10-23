@@ -10,7 +10,7 @@
 #import <TensorFlowLiteObjC/TFLTensorFlowLite.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Accelerate/Accelerate.h>
-#import <libextobjc/extobjc.h>
+
 
 
 #define TFLModelNameKey @"output_graph_card"
@@ -44,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///输入数据获取  isQuantized:是否是量化数据 shape:偏移量
 - (NSData*)inputDataFromBuffer:(CVPixelBufferRef)pixelBuffer isModelQuantized:(BOOL)isQuantized shapeNum:(CGFloat)shape;
-///输出数据解析
-- (NSArray *)transTFLTensorOutputData:(TFLTensor *)outpuTensor withName:(NSString*)name;
+///输出数据解析  offset:概率偏移量(最小概率取值)
+- (NSArray *)transTFLTensorOutputData:(TFLTensor *)outpuTensor withName:(NSString*)name offset:(float)offset;
 ///裁剪和缩放CVPixelBufferRef
 - (CVPixelBufferRef)createCroppedPixelBufferRef:(CMSampleBufferRef)sampleBuffer cropRect:(CGRect)cropRect scaleSize:(CGSize)scaleSize;
 ///缩放图片
