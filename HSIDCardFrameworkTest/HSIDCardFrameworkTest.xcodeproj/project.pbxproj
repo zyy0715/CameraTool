@@ -35,13 +35,11 @@
 		9B0810EE24FD026D0065E702 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810ED24FD026D0065E702 /* main.m */; };
 		9B0810F824FD026D0065E702 /* HSIDCardFrameworkTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0810F724FD026D0065E702 /* HSIDCardFrameworkTestTests.m */; };
 		9B08110324FD026D0065E702 /* HSIDCardFrameworkTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */; };
-		9B3C0EED254180550027FBE8 /* DataConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C0EEC254180550027FBE8 /* DataConvert.swift */; };
-		9B3C0EEF2541809D0027FBE8 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */; };
+		9B307AF12542B54F0000B3B6 /* output_graph_uint8.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9B307AEF2542B28F0000B3B6 /* output_graph_uint8.tflite */; };
+		9B4D9E7825469F4500706EBF /* HSTensorFlowLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D9E7625469F4500706EBF /* HSTensorFlowLiteManager.m */; };
 		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
 		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
 		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
-		9BCB319B253D40B1006543BE /* HSTensorFlowLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */; };
-		9BCB31F7253D90D0006543BE /* output_graph_card.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB31F5253D90D0006543BE /* output_graph_card.tflite */; };
 		9BCB31F8253D90D0006543BE /* output_labels_card.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB31F6253D90D0006543BE /* output_labels_card.txt */; };
 /* End PBXBuildFile section */
 
@@ -111,16 +109,12 @@
 		9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSIDCardFrameworkTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B08110224FD026D0065E702 /* HSIDCardFrameworkTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSIDCardFrameworkTestUITests.m; sourceTree = "<group>"; };
 		9B08110424FD026D0065E702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B3C0EEB254180550027FBE8 /* HSIDCardFrameworkTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSIDCardFrameworkTest-Bridging-Header.h"; sourceTree = "<group>"; };
-		9B3C0EEC254180550027FBE8 /* DataConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvert.swift; sourceTree = "<group>"; };
-		9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
-		9B3C0EF0254193360027FBE8 /* output_graph_card_32.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = output_graph_card_32.tflite; sourceTree = "<group>"; };
+		9B307AEF2542B28F0000B3B6 /* output_graph_uint8.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = output_graph_uint8.tflite; sourceTree = "<group>"; };
+		9B4D9E7625469F4500706EBF /* HSTensorFlowLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSTensorFlowLiteManager.m; sourceTree = "<group>"; };
+		9B4D9E7725469F4500706EBF /* HSTensorFlowLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTensorFlowLiteManager.h; sourceTree = "<group>"; };
 		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
 		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
-		9BCB3199253D40B1006543BE /* HSTensorFlowLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTensorFlowLiteManager.h; sourceTree = "<group>"; };
-		9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSTensorFlowLiteManager.m; sourceTree = "<group>"; };
-		9BCB31F5253D90D0006543BE /* output_graph_card.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = output_graph_card.tflite; sourceTree = "<group>"; };
 		9BCB31F6253D90D0006543BE /* output_labels_card.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output_labels_card.txt; sourceTree = "<group>"; };
 		E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSIDCardFrameworkTest.debug.xcconfig"; path = "Target Support Files/Pods-HSIDCardFrameworkTest/Pods-HSIDCardFrameworkTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,11 +170,8 @@
 			children = (
 				9B07F0F424FE5C0F00F004F7 /* UIImage+IDCardExtend.h */,
 				9B07F0F324FE5C0F00F004F7 /* UIImage+IDCardExtend.m */,
-				9B3C0EEC254180550027FBE8 /* DataConvert.swift */,
-				9B3C0EEE2541809D0027FBE8 /* ArrayExtension.swift */,
-				9BCB3199253D40B1006543BE /* HSTensorFlowLiteManager.h */,
-				9BCB319A253D40B1006543BE /* HSTensorFlowLiteManager.m */,
-				9B3C0EEB254180550027FBE8 /* HSIDCardFrameworkTest-Bridging-Header.h */,
+				9B4D9E7725469F4500706EBF /* HSTensorFlowLiteManager.h */,
+				9B4D9E7625469F4500706EBF /* HSTensorFlowLiteManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -302,8 +293,7 @@
 		9BCB31F4253D90C3006543BE /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				9BCB31F5253D90D0006543BE /* output_graph_card.tflite */,
-				9B3C0EF0254193360027FBE8 /* output_graph_card_32.tflite */,
+				9B307AEF2542B28F0000B3B6 /* output_graph_uint8.tflite */,
 				9BCB31F6253D90D0006543BE /* output_labels_card.txt */,
 			);
 			path = Datas;
@@ -422,10 +412,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B307AF12542B54F0000B3B6 /* output_graph_uint8.tflite in Resources */,
 				9B07F12324FE5C0F00F004F7 /* idHead.png in Resources */,
 				9B07F11E24FE5C0F00F004F7 /* idIcon.png in Resources */,
 				9BCB31F8253D90D0006543BE /* output_labels_card.txt in Resources */,
-				9BCB31F7253D90D0006543BE /* output_graph_card.tflite in Resources */,
 				9B07F12224FE5C0F00F004F7 /* nav_btn_back.png in Resources */,
 				9B07F12424FE5C0F00F004F7 /* photograph@3x.png in Resources */,
 				9B07F12124FE5C0F00F004F7 /* nav_btn_back@3x.png in Resources */,
@@ -492,7 +482,7 @@
 				9B07F11424FE5C0F00F004F7 /* UIImage+IDCardExtend.m in Sources */,
 				9B07F11724FE5C0F00F004F7 /* HSIDCardQualityScanView.m in Sources */,
 				9B07F11524FE5C0F00F004F7 /* HSIDCardQualityScannerController.m in Sources */,
-				9BCB319B253D40B1006543BE /* HSTensorFlowLiteManager.m in Sources */,
+				9B4D9E7825469F4500706EBF /* HSTensorFlowLiteManager.m in Sources */,
 				9B0810E324FD026A0065E702 /* ViewController.m in Sources */,
 				9B0810DD24FD026A0065E702 /* AppDelegate.m in Sources */,
 				9B07F11624FE5C0F00F004F7 /* HSIDCardQualityVideoCaptureManger.m in Sources */,
@@ -500,9 +490,7 @@
 				9B07F11A24FE5C0F00F004F7 /* HSIDCardScannerViewController.m in Sources */,
 				9B07F11824FE5C0F00F004F7 /* HSIDCardQualityBaseScanView.m in Sources */,
 				9B0810EE24FD026D0065E702 /* main.m in Sources */,
-				9B3C0EEF2541809D0027FBE8 /* ArrayExtension.swift in Sources */,
 				9B07F11B24FE5C0F00F004F7 /* HSCustomIDCardScannerController.m in Sources */,
-				9B3C0EED254180550027FBE8 /* DataConvert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,7 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -710,7 +698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -740,7 +728,6 @@
 		9B08110B24FD026D0065E702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
@@ -761,7 +748,6 @@
 		9B08110C24FD026D0065E702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
@@ -782,7 +768,6 @@
 		9B08110E24FD026D0065E702 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;
@@ -801,7 +786,6 @@
 		9B08110F24FD026D0065E702 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				INFOPLIST_FILE = HSIDCardFrameworkTestUITests/Info.plist;

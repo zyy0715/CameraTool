@@ -10,6 +10,7 @@
 #import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
 #import "HSTensorFlowLiteManager.h"
+
 NSInteger const STIdCardScannerScanBoundary = 64;
 
 
@@ -20,6 +21,7 @@ HSIDCardScannerManagerDelegate
 >
 {
     BOOL isNext;
+    NSInteger skipCount;
 }
 @property (assign, nonatomic) HSIDCardQualityCardSide cardSide;
 @property (strong, nonatomic) NSTimer *timer;
@@ -66,6 +68,7 @@ HSIDCardScannerManagerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     isNext = NO;
+    skipCount = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     self.videoCaptureManger.idCardCaptureManagerDelegate = self;
     [self.videoCaptureManger setVideoOrientation:self.captureOrientation];
@@ -128,10 +131,15 @@ HSIDCardScannerManagerDelegate
 }
 #pragma mark -- HSIDCardQualityVideoCaptureMangerDelegate
 - (void)idCardReceiveImage:(UIImage*)currentImage outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
-    NSLog(@"+++++++获取到的图片++++++++");
+//    NSLog(@"+++++++获取到的图片++++++++");
     if (isNext) {
+        if (skipCount >= 20) {
+            isNext = NO;
+        }
+        skipCount++;
         return;
     }
+    skipCount = 0;
     isNext = YES;
     [self getCurrentImage:currentImage outputSampleBuffer:sampleBuffer];
 }
@@ -154,15 +162,17 @@ HSIDCardScannerManagerDelegate
     CGFloat widthScale = image.size.width / HSIDCardQuality_SCREEN_WIDTH;
     CGFloat heightScale = image.size.height / HSIDCardQuality_SCREEN_HEIGHT;
     CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
-    NSLog(@"切图: %@",NSStringFromCGRect(rect));
+//    NSLog(@"切图: %@",NSStringFromCGRect(rect));
     image = [UIImage getSubImage:rect inImage:image];
     //self.photoImage = image;
     ///对图片进行缩放处理
     self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
-    CVPixelBufferRef pixelBuffer = [self.TFLManager createImage:image scaleSize:CGSizeMake(224, 224) PixelBufferRef:sampleBuffer];
-    [self.TFLManager inputTensorAtIndex:0 withBuffer:pixelBuffer shape:0];
+    //Uint8 128*72     Float32  224*224
+    CVPixelBufferRef pixelBuffer = [self.TFLManager createImage:image scaleSize:CGSizeMake(128, 72) PixelBufferRef:sampleBuffer];
+    TFLTensor *inputTensor = [self.TFLManager inputTensorAtIndex:0];
+    [self.TFLManager inputDataFromBuffer:pixelBuffer with:inputTensor];
     TFLTensor *outputTensor = [self.TFLManager outputTensorAtIndex:0];
-    NSArray *results = [self.TFLManager transTFLTensorOutputData:outputTensor withName:outputTensor.name offset:0.95];
+    NSArray *results = [self.TFLManager transTFLTensorOutputData:outputTensor withName:outputTensor.name offset:0.90];
     if (results.count == 0) {
         isNext = NO;
         return;
@@ -237,16 +247,27 @@ HSIDCardScannerManagerDelegate
 /// 返回的解析信息数据
 - (void)idCardScannerInfo:(HSIDCardScannerInfo*)idCardInfo{
     NSLog(@"返回解析数据: %@",idCardInfo.errMsg);
+    NSInteger index = idCardInfo.code;
+    if (index != 0) {
+        isNext = NO;
+        return;
+    }
+    if (idCardInfo.isFront) {
+        if (self.scanSide != HSIDCardQualityCardSideScanFront) {
+            isNext = NO;
+            return;
+        }
+    }else{
+        if (self.scanSide != HSIDCardQualityCardSideScanBack) {
+            isNext = NO;
+            return;
+        }
+    }
+    
     NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
     [mainQueue addOperationWithBlock:^{
-        NSInteger index = idCardInfo.code;
         NSLog(@"++++++当前数值+++++++:%@",@(index));
-       if (index == 0) {
-           [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
-       }else{
-           self->isNext = NO;
-           //[self checkCurrentImageWithFailed:self.photoImage result:idCardInfo];
-       }
+        [self checkCurrentImageWithSuccess:self.photoImage result:idCardInfo];
     }];
 }
 
