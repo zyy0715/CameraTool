@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HSIDCardScannerViewController.h"
 #import "UIImage+IDCardExtend.h"
+#import <Photos/Photos.h>
 @interface ViewController ()<
 HSIDCardScannerViewControllerDelegate
 >
@@ -63,6 +64,7 @@ HSIDCardScannerViewControllerDelegate
 
 #pragma mark -- HSIDCardScannerViewControllerDelegate
 - (void)idCardScannerInfoImage:(UIImage*)image result:(nonnull HSIDCardScannerInfo *)result{
+    [self saveImageToLocalWithImage:image];
     UIImage *scaleImage = image;//[UIImage imageCompressForWidth:image targetWidth:320];
     NSString *resultStr = nil;
     if (selectIndex == 1) {
@@ -118,6 +120,20 @@ HSIDCardScannerViewControllerDelegate
     return dic;
 }
 
+///保存图片到本地
+- (void)saveImageToLocalWithImage:(UIImage*)photoImage{
+    //保存图片到【相机胶卷】
+    /// 异步执行修改操作
+    [[PHPhotoLibrary sharedPhotoLibrary]performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:photoImage];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@",@"保存失败");
+        } else {
+            NSLog(@"%@",@"保存成功");
+        }
+    }];
+}
 
 
 @end
