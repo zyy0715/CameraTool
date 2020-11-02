@@ -99,6 +99,7 @@ HSIDCardScannerManagerDelegate
     self.idCardScanView.infoIV.hidden = YES;
     self.idCardScanView.errorLabel.hidden = NO;
     self.idCardScanView.errorLabel.text = @"";
+    self.idCardScanView.showIV.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
