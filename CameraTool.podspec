@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CameraTool"
-  spec.version      = "0.1.1"
+  spec.version      = "0.1.2"
   spec.summary      = "证件拍照相机工具及识别"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,8 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  1.修改正式网地址
+  1.服务器地址修改
+  2.新增TensorFlowLite识别,自动拍照功能
                    DESC
 
   spec.homepage     = "https://github.com/zyy0715/CameraTool"
@@ -106,7 +107,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "Resources/*.png"
+  spec.resources = "Resources/*.png","Resources/*.txt","Resources/*.tflite"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
   
@@ -134,6 +135,6 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  spec.dependency "TensorFlowLiteObjC", "~> 2.3.0"
 
 end

@@ -30,7 +30,8 @@
     if (self) {
         
         NSError *error = nil;
-        NSString *path = [[NSBundle mainBundle] pathForResource:TFLModelNameKey ofType:TFLModelTypeKey];
+        NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+        NSString *path = [currentBundle pathForResource:TFLModelNameKey ofType:TFLModelTypeKey];
         //初始化识别器,需要传入训练模型的路径,还可以传options
         self.interpreter = [[TFLInterpreter alloc] initWithModelPath:path error:&error];
         NSLog(@"输入数:%@ -- 输出数:%@",@(self.interpreter.inputTensorCount),@(self.interpreter.outputTensorCount));
@@ -357,7 +358,8 @@
 ///获取模型对应标签数组
 - (NSArray *)loadLabels
 {
-    NSURL *path = [[NSBundle mainBundle] URLForResource:TFLLabelsNameKey withExtension:TFLLabelsTypeKey];
+    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    NSURL *path = [currentBundle URLForResource:TFLLabelsNameKey withExtension:TFLLabelsTypeKey];
     if (path == nil) {
         return nil;
     }

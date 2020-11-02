@@ -95,7 +95,7 @@
 		9B07F11124FE5C0F00F004F7 /* photograph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photograph@2x.png"; sourceTree = "<group>"; };
 		9B07F11224FE5C0F00F004F7 /* idHead@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@2x.png"; sourceTree = "<group>"; };
 		9B07F11324FE5C0F00F004F7 /* idHead@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "idHead@3x.png"; sourceTree = "<group>"; };
-		9B0810D824FD026A0065E702 /* 拍照测试.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "拍照测试.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0810D824FD026A0065E702 /* OCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0810DB24FD026A0065E702 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B0810DC24FD026A0065E702 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9B0810E124FD026A0065E702 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -207,6 +207,8 @@
 		9B07F10824FE5C0F00F004F7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B307AEF2542B28F0000B3B6 /* output_graph_uint8.tflite */,
+				9BCB31F6253D90D0006543BE /* output_labels_card.txt */,
 				9B07F10924FE5C0F00F004F7 /* idIcon@3x.png */,
 				9B07F10A24FE5C0F00F004F7 /* idIcon.png */,
 				9B07F10B24FE5C0F00F004F7 /* idIcon@2x.png */,
@@ -240,7 +242,7 @@
 		9B0810D924FD026A0065E702 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B0810D824FD026A0065E702 /* 拍照测试.app */,
+				9B0810D824FD026A0065E702 /* OCR.app */,
 				9B0810F324FD026D0065E702 /* HSIDCardFrameworkTestTests.xctest */,
 				9B0810FE24FD026D0065E702 /* HSIDCardFrameworkTestUITests.xctest */,
 			);
@@ -297,9 +299,7 @@
 		9BCB31F4253D90C3006543BE /* Datas */ = {
 			isa = PBXGroup;
 			children = (
-				9B307AEF2542B28F0000B3B6 /* output_graph_uint8.tflite */,
 				9B4FB573254A800B0027F90A /* converted_model.tflite */,
-				9BCB31F6253D90D0006543BE /* output_labels_card.txt */,
 				9B4FB578254AA7B60027F90A /* test_labels.txt */,
 			);
 			path = Datas;
@@ -331,7 +331,7 @@
 			);
 			name = HSIDCardFrameworkTest;
 			productName = HSIDCardFrameworkTest;
-			productReference = 9B0810D824FD026A0065E702 /* 拍照测试.app */;
+			productReference = 9B0810D824FD026A0065E702 /* OCR.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9B0810F224FD026D0065E702 /* HSIDCardFrameworkTestTests */ = {
@@ -671,7 +671,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 19;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -691,8 +691,8 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hd.camera;
-				PRODUCT_NAME = "拍照测试";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_NAME = OCR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "../Classes/Tools/HSIDCardFrameworkTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -709,7 +709,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 19;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -728,8 +728,8 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hd.camera;
-				PRODUCT_NAME = "拍照测试";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_NAME = OCR;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "../Classes/Tools/HSIDCardFrameworkTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

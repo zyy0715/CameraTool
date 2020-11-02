@@ -73,8 +73,8 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     [self.photoBtn setCenter:CGPointMake(CGRectGetMidX(self.frame), CGRectGetHeight(self.frame)-60)];
     [self addSubview:self.photoBtn];
 
-    [self.backBtn setFrame:CGRectMake(0, 0, 30, 30)];
-    [self.backBtn setCenter:CGPointMake(30, CGRectGetMinY(self.frame)+40)];
+    [self.backBtn setFrame:CGRectMake(0, 0, 40, 40)];
+    [self.backBtn setCenter:CGPointMake(25, CGRectGetMinY(self.frame)+45)];
     [self addSubview:self.backBtn];
 
     CGFloat hx = CGRectGetMaxX(self.windowFrame)-CGRectGetWidth(self.windowFrame) * HScaleX;
@@ -146,6 +146,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"nav_btn_back@2x.png" ofType:nil];
+        [_backBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
         [_backBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
     }
     return _backBtn;

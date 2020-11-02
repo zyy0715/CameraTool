@@ -85,8 +85,17 @@ HSIDCardScannerManagerDelegate
 
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
-    [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
-
+    if (self.networkType == HSIDOCRNetworkStateProductionType) {
+        [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
+    }else{
+        [self.manager setCurrentNetWorkType:HSNetworkStateTestType];
+    }
+    
+//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//    CGFloat dWidth = 224;
+//
+//    self.bgIV = [[UIImageView alloc]initWithFrame:CGRectMake((width-dWidth)/2.0, 300, dWidth, dWidth)];
+//    [self.view addSubview:self.bgIV];
     self.idCardScanView.infoIV.hidden = YES;
     self.idCardScanView.errorLabel.hidden = NO;
     self.idCardScanView.errorLabel.text = @"";
@@ -129,7 +138,7 @@ HSIDCardScannerManagerDelegate
 - (void)idCardReceiveImage:(UIImage*)currentImage outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
 //    NSLog(@"+++++++获取到的图片++++++++");
     if (isNext) {
-        if (skipCount >= 20) {
+        if (skipCount >= SKIPCOUNT) {
             isNext = NO;
         }
         skipCount++;
@@ -154,14 +163,17 @@ HSIDCardScannerManagerDelegate
     [self stop];
 }
 - (void)getCurrentImage:(UIImage*)image  outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
-    //self.videoCaptureManger.complete = nil;
+//    self.videoCaptureManger.complete = nil;
     CGFloat widthScale = image.size.width/HSIDCardQuality_SCREEN_WIDTH;
     CGFloat heightScale = image.size.height/HSIDCardQuality_SCREEN_HEIGHT;
-    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+230, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetWidth(super.uiWindowRect)*widthScale)/1.57);
+    CGFloat defaultWidth = (CGRectGetWidth(super.uiWindowRect)*widthScale);
+    CGFloat defaultHeight = (CGRectGetHeight(super.uiWindowRect)*heightScale);
+    CGFloat defaultY = CGRectGetMinY(super.uiWindowRect)*heightScale;
+    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10,defaultY, defaultWidth, defaultHeight);
     image = [UIImage getSubImage:rect inImage:image];
     self.photoImage = image;
     NSLog(@"切图: %@",NSStringFromCGRect(rect));
-    //self.photoImage = image;
+    
     ///对图片进行缩放处理
     //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     //Uint8 128*72     Float32  224*224

@@ -26,7 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HSIDCardScannerViewController : UIViewController
 @property (assign, nonatomic) HSIDCardQualityScanType scanType;
+/** 默认测试环境*/
+@property (assign, nonatomic) HSIDOCRNetworkStateType networkType;
 @property (nonatomic, weak) id<HSIDCardScannerViewControllerDelegate> idCardScannerViewDelegate;
+
+
 
 @end
 

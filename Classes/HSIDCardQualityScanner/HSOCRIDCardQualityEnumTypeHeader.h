@@ -10,6 +10,18 @@
 #define STOCRIDCardQualityEnumTypeHeader_h
 
 /**
+ * 网络请求环境
+ */
+typedef enum : NSUInteger {
+    /** 测试环境 */
+    HSIDOCRNetworkStateTestType = 0,
+    /** 正式环境 */
+    HSIDOCRNetworkStateProductionType,
+    /** 其他环境 */
+    HSIDOCRNetworkStateOtherType,
+} HSIDOCRNetworkStateType;
+
+/**
  *  HSIDOCRIDCardQuality运行结果
  */
 typedef NS_ENUM(NSInteger, HSIDOCRIDCardQualityResult) {

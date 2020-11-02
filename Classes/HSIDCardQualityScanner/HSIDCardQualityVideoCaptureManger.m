@@ -52,7 +52,7 @@
         overTime = dispatch_time(DISPATCH_TIME_NOW, 4.0f * NSEC_PER_SEC);
         //初始化一些参数
         self.previousTime = [[NSDate distantPast] timeIntervalSince1970] *1000;
-        self.delayBetweenMs = 200;
+        self.delayBetweenMs = 500;
     }
     return self;  
 }
@@ -127,7 +127,7 @@
     
 //    currentImage = [UIImage scaleToSize:currentImage size:CGSizeMake(720, 1280)];
 //    if (self.complete) {
-//        NSLog(@"获取图片数据");
+//
 //        self.complete(currentImage,sampleBuffer);
 //    }
     

@@ -45,5 +45,6 @@
 #define STSCALEW HSIDCardQuality_SCREEN_WIDTH/320.0
 #define STSCALEH HSIDCardQuality_SCREEN_HEIGHT/568.0
 
+#define SKIPCOUNT 40
 
 #endif /* STDefineHeader_h */

@@ -41,6 +41,8 @@ HSIDCardQualityBaseScanViewDelegate
  HSIDCardQualityScanner 的 View
  */
 @property (nonatomic, strong) HSIDCardQualityScanView *idCardScanView;
+/** 网络环境 */
+@property (assign, nonatomic) HSIDOCRNetworkStateType networkType;
 
 /*!
  @method initWithOrientation:apiKey:apiSecret:
