@@ -22,6 +22,18 @@
 #define HSIDCardQuality_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define HSIDCardQuality_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
+#define scale5W(w)          w / (double)320
+#define scale5H(h)          h / (double)568
+
+#define scaleW(w)           w / (double)375
+#define scaleH(h)           h / (double)667
+
+#define scalePW(w)          w / (double)414
+#define scalePH(h)          h / (double)736
+
+#define scaleXW(w)          w / (double)375
+#define scaleXH(h)          h / (double)812
+
 #define HSIDCardQuality_VIEDO_WIDTH (720.0)
 #define HSIDCardQuality_VIDEO_HEIGHT (1280.0)
 

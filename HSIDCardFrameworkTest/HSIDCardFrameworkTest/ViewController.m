@@ -62,9 +62,7 @@ HSIDCardScannerViewControllerDelegate
 
 #pragma mark -- HSIDCardScannerViewControllerDelegate
 - (void)idCardScannerInfoImage:(UIImage*)image result:(nonnull HSIDCardScannerInfo *)result{
-    NSLog(@"原始图片:%@",image);
-    UIImage *scaleImage = [UIImage imageCompressForWidth:image targetWidth:320];
-    NSLog(@"缩放图片:%@",scaleImage);
+    UIImage *scaleImage = image;//[UIImage imageCompressForWidth:image targetWidth:320];
     NSString *resultStr = nil;
     if (selectIndex == 1) {
         self.frontIV.image = scaleImage;

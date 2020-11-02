@@ -24,5 +24,7 @@
 //指定宽度按比例缩放
 + (UIImage *) imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth;
 
++ (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size;
+
 
 @end

@@ -70,6 +70,10 @@
     NSError *error;
     NSData *data = [self inputDataFromBuffer:pixelBuffer isModelQuantized:(inputTensor.dataType==TFLTensorDataTypeUInt8)];
     [inputTensor copyData:data error:&error];
+    if (error) {
+        NSLog(@"copyDataError: %@", error);
+        assert(error);
+    }
     [self.interpreter invokeWithError:&error];
     if (error) {
         NSLog(@"invokeWithError: %@", error);
@@ -100,7 +104,7 @@
 //    NSLog(@"OutputData: %@",data);
 //    NSLog(@"Name: %@",outpuTensor.name);
     
-    NSArray *shape = [outpuTensor shapeWithError:&error];
+//    NSArray *shape = [outpuTensor shapeWithError:&error];
     //NSLog(@"Shape: %@",shape);
     if (error) {
         NSLog(@"错误:%@",error);

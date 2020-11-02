@@ -87,13 +87,9 @@ HSIDCardScannerManagerDelegate
     self.manager.delegate = self;
     [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
 
-
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat dWidth = 224;
-    
-    self.bgIV = [[UIImageView alloc]initWithFrame:CGRectMake((width-dWidth)/2.0, 300, dWidth, dWidth)];
-    [self.view addSubview:self.bgIV];
-
+    self.idCardScanView.infoIV.hidden = YES;
+    self.idCardScanView.errorLabel.hidden = NO;
+    self.idCardScanView.errorLabel.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -159,14 +155,15 @@ HSIDCardScannerManagerDelegate
 }
 - (void)getCurrentImage:(UIImage*)image  outputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
     //self.videoCaptureManger.complete = nil;
-    CGFloat widthScale = image.size.width / HSIDCardQuality_SCREEN_WIDTH;
-    CGFloat heightScale = image.size.height / HSIDCardQuality_SCREEN_HEIGHT;
-    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
-//    NSLog(@"切图: %@",NSStringFromCGRect(rect));
+    CGFloat widthScale = image.size.width/HSIDCardQuality_SCREEN_WIDTH;
+    CGFloat heightScale = image.size.height/HSIDCardQuality_SCREEN_HEIGHT;
+    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+230, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetWidth(super.uiWindowRect)*widthScale)/1.57);
     image = [UIImage getSubImage:rect inImage:image];
+    self.photoImage = image;
+    NSLog(@"切图: %@",NSStringFromCGRect(rect));
     //self.photoImage = image;
     ///对图片进行缩放处理
-    self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
+    //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     //Uint8 128*72     Float32  224*224
     CVPixelBufferRef pixelBuffer = [self.TFLManager createImage:image scaleSize:CGSizeMake(128, 72) PixelBufferRef:sampleBuffer];
     TFLTensor *inputTensor = [self.TFLManager inputTensorAtIndex:0];
@@ -250,6 +247,11 @@ HSIDCardScannerManagerDelegate
     NSInteger index = idCardInfo.code;
     if (index != 0) {
         isNext = NO;
+        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+        [mainQueue addOperationWithBlock:^{
+            self.idCardScanView.infoIV.hidden = NO;
+            self.idCardScanView.errorLabel.text = [NSString stringWithFormat:@"%@",idCardInfo.errMsg];
+        }];
         return;
     }
     if (idCardInfo.isFront) {

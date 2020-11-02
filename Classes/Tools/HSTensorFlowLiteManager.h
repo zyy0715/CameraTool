@@ -11,10 +11,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Accelerate/Accelerate.h>
 
-#define TFLModelNameKey @"output_graph_uint8"
+#define TFLModelNameKey @"output_graph_uint8" ///@"uint8_1028"
 #define TFLModelTypeKey @"tflite"
 
-#define TFLLabelsNameKey @"output_labels_card"
+#define TFLLabelsNameKey @"output_labels_card" ///@"test_labels"
 #define TFLLabelsTypeKey @"txt"
 
 

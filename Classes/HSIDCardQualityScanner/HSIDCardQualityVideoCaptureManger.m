@@ -124,6 +124,8 @@
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     currentImage = [UIImage getImageStream:imageBuffer];
     NSLog(@"原始图片:%@",currentImage);
+    
+//    currentImage = [UIImage scaleToSize:currentImage size:CGSizeMake(720, 1280)];
 //    if (self.complete) {
 //        NSLog(@"获取图片数据");
 //        self.complete(currentImage,sampleBuffer);
