@@ -66,14 +66,47 @@ HSIDCardScannerViewControllerDelegate
 #pragma mark -- HSIDCardScannerViewControllerDelegate
 - (void)idCardScannerInfoImage:(UIImage*)image result:(nonnull HSIDCardScannerInfo *)result{
     NSLog(@"原始图片:%@",image);
-    UIImage *scaleImage = [UIImage imageCompressForWidth:image targetWidth:320];
-    NSLog(@"缩放图片:%@",scaleImage);
-    if (selectIndex == 1) {
-        self.frontIV.image = scaleImage;
-    }else{
-        self.backIV.image = scaleImage;
-    }
-    NSLog(@"名称: %@ \n身份证: %@ \n有效期(始): %@ \n有效期(终): %@",result.name,result.idCardNum,result.validStartDate,result.validEndDate);
+      NSString *resultStr = nil;
+     if (selectIndex == 1) {
+         self.frontIV.image = image;
+      resultStr = [NSString stringWithFormat:@"姓名:%@\n号码:%@\n详细:%@\n",result.name,result.idCardNum,[self stringFromDict:result.allInfo]];
+     }else{
+         self.backIV.image = image;
+      resultStr = [NSString stringWithFormat:@"开始:%@\n结束:%@\n详细:%@\n",result.validStartDate,result.validEndDate,[self stringFromDict:result.allInfo]];
+     }
+      UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"结果" message:resultStr preferredStyle:(UIAlertControllerStyleAlert)];
+      NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
+      paraStyle.alignment = NSTextAlignmentLeft;
+      NSMutableAttributedString *atrStr = [[NSMutableAttributedString alloc] initWithString:resultStr attributes:@{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:13.0]}];
+     
+      [alert setValue:atrStr forKey:@"attributedMessage"];
+      UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+         //
+      }];
+      [alert addAction:action];
+      [self presentViewController:alert animated:YES completion:nil];
+}
+///字典转JSON字符串
+- (NSString*)stringFromDict:(NSDictionary*)dict{
+      NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
+      NSString *dataStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+      return dataStr;
+}
+///JSON字符串转字典
++ (NSDictionary *)dictionaryFromString:(NSString *)jsonString {
+      if (jsonString == nil) {
+          return nil;
+      }
+      NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+      NSError *err;
+      NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:&err];
+      if(err) {
+          NSLog(@"json解析失败：%@",err);
+          return nil;
+      }
+      return dic;
 }
 
 

@@ -601,13 +601,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCard;
 				PRODUCT_NAME = "OCR集成";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -632,12 +632,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCardFrameworkTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hd.HSIDCard;
 				PRODUCT_NAME = "OCR集成";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

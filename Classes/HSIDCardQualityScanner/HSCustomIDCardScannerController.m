@@ -139,7 +139,10 @@ HSIDCardScannerManagerDelegate
     self.videoCaptureManger.complete = nil;
     CGFloat widthScale = image.size.width / HSIDCardQuality_SCREEN_WIDTH;
     CGFloat heightScale = image.size.height / HSIDCardQuality_SCREEN_HEIGHT;
-    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10, CGRectGetMinY(super.uiWindowRect)+220, (CGRectGetWidth(super.uiWindowRect)*widthScale), (CGRectGetHeight(super.uiWindowRect)*heightScale));
+    CGFloat defaultWidth = (CGRectGetWidth(super.uiWindowRect)*widthScale);
+    CGFloat defaultHeight = (CGRectGetHeight(super.uiWindowRect)*heightScale);
+    CGFloat defaultY = CGRectGetMinY(super.uiWindowRect)*heightScale;
+    CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10,defaultY, defaultWidth, defaultHeight);
     image = [UIImage getSubImage:rect inImage:image];
     self.photoImage = image;
 
