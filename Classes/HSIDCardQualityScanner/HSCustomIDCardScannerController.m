@@ -71,7 +71,12 @@ HSIDCardScannerManagerDelegate
 
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
-    [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
+    if (self.networkType == HSIDOCRNetworkStateProductionType) {
+        [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
+    }else{
+        [self.manager setCurrentNetWorkType:HSNetworkStateTestType];
+    }
+
 
 
 

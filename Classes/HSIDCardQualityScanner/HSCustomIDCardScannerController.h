@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 <
 HSIDCardQualityBaseScanViewDelegate
 >
+/** 网络环境 */
+@property (assign, nonatomic) HSIDOCRNetworkStateType networkType;
 
 @property (nonatomic, weak) id<HSIDCardQualityScannerDelegate> idCardScannerDelegate;
 

@@ -43,11 +43,15 @@ HSIDCardScannerViewControllerDelegate
     selectIndex = type;
     HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
     vc.idCardScannerViewDelegate = self;
+    ///设置请求环境,默认测试环境
+    vc.networkType = HSIDOCRNetworkStateTestType;
     vc.scanType = HSIDCardQualityScanTypeFront;//HSIDCardQualityScanTypeOther;
     if (type != 1) {
         vc.scanType = HSIDCardQualityScanTypeBack;
     }
     [self.navigationController pushViewController:vc animated:YES];
+    
+    
     return;
     if (@available(iOS 13, *)) {
         //全屏
