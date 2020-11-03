@@ -52,7 +52,7 @@
         overTime = dispatch_time(DISPATCH_TIME_NOW, 4.0f * NSEC_PER_SEC);
         //初始化一些参数
         self.previousTime = [[NSDate distantPast] timeIntervalSince1970] *1000;
-        self.delayBetweenMs = 500;
+        self.delayBetweenMs = 200;
     }
     return self;  
 }
