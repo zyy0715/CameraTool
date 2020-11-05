@@ -172,11 +172,10 @@ HSIDCardScannerManagerDelegate
     CGFloat defaultY = CGRectGetMinY(super.uiWindowRect)*heightScale;
     CGRect rect = CGRectMake(CGRectGetMinX(super.uiWindowRect)+10,defaultY, defaultWidth, defaultHeight);
     image = [UIImage getSubImage:rect inImage:image];
-    self.photoImage = image;
     NSLog(@"切图: %@",NSStringFromCGRect(rect));
-    
+//    self.photoImage = image;
     ///对图片进行缩放处理
-    //self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
+    self.photoImage = [UIImage imageCompressForWidth:image targetWidth:320];
     //Uint8 128*72     Float32  224*224
     CVPixelBufferRef pixelBuffer = [self.TFLManager createImage:image scaleSize:CGSizeMake(128, 72) PixelBufferRef:sampleBuffer];
     TFLTensor *inputTensor = [self.TFLManager inputTensorAtIndex:0];

@@ -22,6 +22,12 @@
 #define HSIDCardQuality_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define HSIDCardQuality_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
+///设备型号判断
+#define Device_Width  [[UIScreen mainScreen] bounds].size.width//获取屏幕宽高
+#define Device_Height [[UIScreen mainScreen] bounds].size.height
+#define NSVH (MAX(Device_Width, Device_Height)  >= 812 ? 44 : 20)
+
+
 #define scale5W(w)          w / (double)320
 #define scale5H(h)          h / (double)568
 
