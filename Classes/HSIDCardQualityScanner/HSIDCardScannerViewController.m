@@ -73,6 +73,7 @@ HSIDCardQualityScannerControllerDelegate
     self.scanSide = scanSide;
     self.clearAllOnFailed = YES;
     self.idCardQualityScanner = [[HSCustomIDCardScannerController alloc] initWithOrientation:videoOrientation delegate:self];
+    self.idCardQualityScanner.networkType = self.networkType;
 
     HSIDCardQualityScanView *rootView = self.idCardQualityScanner.idCardScanView;
     CGFloat width = 315;
