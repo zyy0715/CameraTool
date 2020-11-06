@@ -38,7 +38,10 @@ typedef enum : NSUInteger {
  * 设置网络环境(默认测试环境)
  */
 - (void)setCurrentNetWorkType:(HSNetworkStateType)type;
-
+/**
+ * 设置默认信息(姓名和身份证号)
+ */
+- (void)setDefaultConfig:(NSDictionary*)info;
 /**
  * 上传需要解析的身份证照片
  * @param image 身份证照(截取之后的图片最优)

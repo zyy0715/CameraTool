@@ -33,6 +33,11 @@
 @property (nonatomic, assign) UIInterfaceOrientation interfaceOrientation;
 @property (nonatomic, assign) AVCaptureVideoOrientation captureOrientation;
 
+/** 姓名 */
+@property (nonatomic, strong) NSString * name;
+/** 身份证 */
+@property (nonatomic, strong) NSString * idCardNum;
+
 - (instancetype)initWithOrientation:(AVCaptureVideoOrientation)orientation;
 
 - (void)moveScanWindowUpFromCenterWithDelta:(NSInteger)delta;

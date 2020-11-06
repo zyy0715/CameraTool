@@ -19,6 +19,9 @@ HSIDCardScannerViewControllerDelegate
 @property (weak, nonatomic) IBOutlet UIImageView *backIV;
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTF;
+@property (weak, nonatomic) IBOutlet UITextField *idCardTF;
+
 @end
 
 @implementation ViewController
@@ -45,7 +48,7 @@ HSIDCardScannerViewControllerDelegate
     selectIndex = type;
     HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
     vc.idCardScannerViewDelegate = self;
-    vc.networkType = HSIDOCRNetworkStateTestType;
+    vc.networkType = HSIDOCRNetworkStateProductionType;
     vc.scanType = HSIDCardQualityScanTypeFront;//HSIDCardQualityScanTypeOther;
     if (type != 1) {
         vc.scanType = HSIDCardQualityScanTypeBack;

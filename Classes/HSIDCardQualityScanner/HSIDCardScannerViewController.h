@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface HSIDCardScannerViewController : UIViewController
+///使用此初始化方式进行初始化
+- (instancetype)initWithName:(NSString*)name idCardNum:(NSString*)idCardNum;
+
 @property (assign, nonatomic) HSIDCardQualityScanType scanType;
 /** 默认测试环境*/
 @property (assign, nonatomic) HSIDOCRNetworkStateType networkType;

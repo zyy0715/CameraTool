@@ -85,17 +85,14 @@ HSIDCardScannerManagerDelegate
 
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
+//    [self.manager setDefaultConfig:@{@"name":self.name,@"idCardNum":self.idCardNum}];
+    [self.manager setDefaultConfig:@{}];
     if (self.networkType == HSIDOCRNetworkStateProductionType) {
         [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
     }else{
         [self.manager setCurrentNetWorkType:HSNetworkStateTestType];
     }
     
-//    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-//    CGFloat dWidth = 224;
-//
-//    self.bgIV = [[UIImageView alloc]initWithFrame:CGRectMake((width-dWidth)/2.0, 300, dWidth, dWidth)];
-//    [self.view addSubview:self.bgIV];
     self.idCardScanView.infoIV.hidden = YES;
     self.idCardScanView.errorLabel.hidden = NO;
     self.idCardScanView.errorLabel.text = @"";
