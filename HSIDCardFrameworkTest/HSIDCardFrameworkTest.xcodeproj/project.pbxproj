@@ -39,6 +39,7 @@
 		9B4D9E7825469F4500706EBF /* HSTensorFlowLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4D9E7625469F4500706EBF /* HSTensorFlowLiteManager.m */; };
 		9B4FB574254A800B0027F90A /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9B4FB573254A800B0027F90A /* converted_model.tflite */; };
 		9B4FB579254AA7B60027F90A /* test_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B4FB578254AA7B60027F90A /* test_labels.txt */; };
+		9B6538C52558E01C00316746 /* black_model_uint8.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9B6538C42558E01C00316746 /* black_model_uint8.tflite */; };
 		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
 		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
 		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
@@ -116,6 +117,7 @@
 		9B4D9E7725469F4500706EBF /* HSTensorFlowLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSTensorFlowLiteManager.h; sourceTree = "<group>"; };
 		9B4FB573254A800B0027F90A /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = converted_model.tflite; sourceTree = "<group>"; };
 		9B4FB578254AA7B60027F90A /* test_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_labels.txt; sourceTree = "<group>"; };
+		9B6538C42558E01C00316746 /* black_model_uint8.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = black_model_uint8.tflite; sourceTree = "<group>"; };
 		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
 		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		9BCB31F4253D90C3006543BE /* Datas */ = {
 			isa = PBXGroup;
 			children = (
+				9B6538C42558E01C00316746 /* black_model_uint8.tflite */,
 				9B4FB573254A800B0027F90A /* converted_model.tflite */,
 				9B4FB578254AA7B60027F90A /* test_labels.txt */,
 			);
@@ -432,6 +435,7 @@
 				9B07F12724FE5C0F00F004F7 /* idHead@3x.png in Resources */,
 				9B07F11D24FE5C0F00F004F7 /* idIcon@3x.png in Resources */,
 				9B0810E824FD026D0065E702 /* Assets.xcassets in Resources */,
+				9B6538C52558E01C00316746 /* black_model_uint8.tflite in Resources */,
 				9B07F12024FE5C0F00F004F7 /* nav_btn_back@2x.png in Resources */,
 				9B07F11F24FE5C0F00F004F7 /* idIcon@2x.png in Resources */,
 				9B07F12524FE5C0F00F004F7 /* photograph@2x.png in Resources */,
@@ -671,7 +675,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -709,7 +713,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;

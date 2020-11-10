@@ -48,7 +48,7 @@ HSIDCardScannerViewControllerDelegate
     selectIndex = type;
     HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
     vc.idCardScannerViewDelegate = self;
-    vc.networkType = HSIDOCRNetworkStateProductionType;
+    vc.networkType = HSIDOCRNetworkStateTestType;
     vc.scanType = HSIDCardQualityScanTypeFront;//HSIDCardQualityScanTypeOther;
     if (type != 1) {
         vc.scanType = HSIDCardQualityScanTypeBack;
