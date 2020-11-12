@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Accelerate/Accelerate.h>
 
-#define TFLModelNameKey @"black_model_uint8" //@"output_graph_uint8" ///@"uint8_1028"
+#define TFLModelNameKey @"output_graph_uint8" ///@"uint8_1028" @"black_model_uint8"
 #define TFLModelTypeKey @"tflite"
 
 #define TFLLabelsNameKey @"output_labels_card" ///@"test_labels"
