@@ -46,7 +46,8 @@ HSIDCardScannerViewControllerDelegate
 ///拍照
 - (void)takePicActionWithType:(NSInteger)type{
     selectIndex = type;
-    HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
+    ///新增初始化方法,正面必须上传需要比对的身份证号及姓名,背面可传可不传
+    HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] initWithName:@"" idCardNum:@""];
     vc.idCardScannerViewDelegate = self;
     vc.networkType = HSIDOCRNetworkStateTestType;
     vc.scanType = HSIDCardQualityScanTypeFront;//HSIDCardQualityScanTypeOther;

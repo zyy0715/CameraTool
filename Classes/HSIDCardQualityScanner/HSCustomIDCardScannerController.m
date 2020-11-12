@@ -85,8 +85,11 @@ HSIDCardScannerManagerDelegate
 
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
-//    [self.manager setDefaultConfig:@{@"name":self.name,@"idCardNum":self.idCardNum}];
-    [self.manager setDefaultConfig:@{}];
+    if (!(IS_EMPTY_STRING(self.name)||IS_EMPTY_STRING(self.idCardNum))) {
+        [self.manager setDefaultConfig:@{@"name":self.name,@"idCardNum":self.idCardNum}];
+    }else{
+        [self.manager setDefaultConfig:@{}];
+    }
     if (self.networkType == HSIDOCRNetworkStateProductionType) {
         [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
     }else{

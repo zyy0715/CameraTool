@@ -45,7 +45,9 @@ HSIDCardQualityScannerControllerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCamcraSetting];
-//    [self performSelector:@selector(checkNameAndIdCardNum) withObject:nil afterDelay:1];
+    if (self.scanType == HSIDCardQualityScanTypeFront) {
+//        [self performSelector:@selector(checkNameAndIdCardNum) withObject:nil afterDelay:1];
+    }
 }
 
 - (void)checkNameAndIdCardNum{
