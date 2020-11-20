@@ -11,7 +11,7 @@
 #import "HSIDCardQualityVideoCaptureManger.h"
 #import "HSIDCardQualityBaseScanView.h"
 #import "HSOCRIDCardQualityEnumTypeHeader.h"
-#import <HSIDCard/HSIDCard.h>
+#import "HSIDCard.h"
 
 @protocol HSIDCardQualityScannerControllerDelegate <NSObject>
 
@@ -32,7 +32,7 @@
 @property (nonatomic, assign) CGRect uiWindowRect;
 @property (nonatomic, assign) UIInterfaceOrientation interfaceOrientation;
 @property (nonatomic, assign) AVCaptureVideoOrientation captureOrientation;
-
+@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
 /** 姓名 */
 @property (nonatomic, strong) NSString * name;
 /** 身份证 */

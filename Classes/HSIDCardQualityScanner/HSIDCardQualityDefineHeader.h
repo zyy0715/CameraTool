@@ -27,9 +27,6 @@
 #define Device_Height [[UIScreen mainScreen] bounds].size.height
 #define NSVH (MAX(Device_Width, Device_Height)  >= 812 ? 44 : 20)
 
-///字符串判空
-#define SAFE_STRING(string) (string != nil) ? (string) : (string = @"")
-#define IS_EMPTY_STRING(string) (string == nil ||[string isEqualToString:@""])? YES : NO
 
 #define scale5W(w)          w / (double)320
 #define scale5H(h)          h / (double)568
@@ -55,5 +52,9 @@
 #define STSCALEH HSIDCardQuality_SCREEN_HEIGHT/568.0
 
 #define SKIPCOUNT 40
+
+///字符串判空
+#define SAFE_STRING(string) (string != nil) ? (string) : (string = @"")
+#define IS_EMPTY_STRING(string) (string == nil ||[string isEqualToString:@""])? YES : NO
 
 #endif /* STDefineHeader_h */

@@ -7,13 +7,11 @@
 //
 
 #import "HSIDCardScannerViewController.h"
-
+#import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
 
 
-///字符串判空
-#define SAFE_STRING(string) (string != nil) ? (string) : (string = @"")
-#define IS_EMPTY_STRING(string) (string == nil ||[string isEqualToString:@""])? YES : NO
+
 @interface HSIDCardScannerViewController ()
 <
 HSIDCardQualityScannerDelegate,
@@ -45,25 +43,19 @@ HSIDCardQualityScannerControllerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCamcraSetting];
-    if (self.scanType == HSIDCardQualityScanTypeFront) {
-//        [self performSelector:@selector(checkNameAndIdCardNum) withObject:nil afterDelay:1];
-    }
+    [self performSelector:@selector(checkNameAndIdCardNum) withObject:nil afterDelay:1];
 }
 
 - (void)checkNameAndIdCardNum{
     if (IS_EMPTY_STRING(self.name)||IS_EMPTY_STRING(self.idCardNum)) {
         NSString *resultStr = @"请传入需要识别的姓名和身份证号,否则无法使用识别功能";
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"结果" message:resultStr preferredStyle:(UIAlertControllerStyleAlert)];
-        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
-        paraStyle.alignment = NSTextAlignmentLeft;
-        NSMutableAttributedString *atrStr = [[NSMutableAttributedString alloc] initWithString:resultStr attributes:@{NSParagraphStyleAttributeName:paraStyle,NSFontAttributeName:[UIFont systemFontOfSize:13.0]}];
-        [alert setValue:atrStr forKey:@"attributedMessage"];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
             [self backPreviousController];
         }];
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
-        
+        [self stop];
     }
 }
 
@@ -106,6 +98,7 @@ HSIDCardQualityScannerControllerDelegate
     self.scanSide = scanSide;
     self.clearAllOnFailed = YES;
     self.idCardQualityScanner = [[HSCustomIDCardScannerController alloc] initWithOrientation:videoOrientation delegate:self];
+    self.idCardQualityScanner.scanSide = scanSide;
     self.idCardQualityScanner.name = self.name;
     self.idCardQualityScanner.idCardNum = self.idCardNum;
     self.idCardQualityScanner.networkType = self.networkType;

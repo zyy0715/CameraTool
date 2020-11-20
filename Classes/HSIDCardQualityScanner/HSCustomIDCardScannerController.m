@@ -85,8 +85,8 @@ HSIDCardScannerManagerDelegate
 
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
-    if (!(IS_EMPTY_STRING(self.name)||IS_EMPTY_STRING(self.idCardNum))) {
-        [self.manager setDefaultConfig:@{@"name":self.name,@"idCardNum":self.idCardNum}];
+    if (self.scanSide == HSIDCardQualityCardSideScanFront) {
+        [self.manager setDefaultConfig:@{@"name":SAFE_STRING(self.name),@"idCardNo":SAFE_STRING(self.idCardNum)}];
     }else{
         [self.manager setDefaultConfig:@{}];
     }
