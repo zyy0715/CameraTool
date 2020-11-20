@@ -10,7 +10,7 @@
 #import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
 
-extern NSString * HSIDCardVersion = @"1.1.0";
+NSString * HSIDCardVersion = @"1.1.0";
 UIKIT_EXTERN
 @interface HSIDCardScannerViewController ()
 <

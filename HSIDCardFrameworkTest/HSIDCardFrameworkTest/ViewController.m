@@ -28,6 +28,7 @@ HSIDCardScannerViewControllerDelegate
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"iOS OCR SDKDemo";
+    NSLog(@"版本号:%@",HSIDCardVersion);
 }
 
 - (IBAction)frontBtnAction:(id)sender {
