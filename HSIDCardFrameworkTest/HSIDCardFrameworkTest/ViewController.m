@@ -41,11 +41,12 @@ HSIDCardScannerViewControllerDelegate
 ///拍照
 - (void)takePicActionWithType:(NSInteger)type{
     selectIndex = type;
-    HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] init];
+    HSIDCardScannerViewController *vc = [[HSIDCardScannerViewController alloc] initWithName:@"Test" idCardNum:@"32211222"];
     vc.idCardScannerViewDelegate = self;
     ///设置请求环境,默认测试环境
     vc.networkType = HSIDOCRNetworkStateTestType;
-    vc.scanType = HSIDCardQualityScanTypeFront;//HSIDCardQualityScanTypeOther;
+    ///设置拍照正反面
+    vc.scanType = HSIDCardQualityScanTypeFront;
     if (type != 1) {
         vc.scanType = HSIDCardQualityScanTypeBack;
     }

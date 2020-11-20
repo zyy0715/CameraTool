@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HSCustomIDCardScannerController.h"
 
+extern NSString * HSIDCardVersion;
+
 typedef NS_ENUM(NSUInteger, HSIDCardQualityScanType) {
     HSIDCardQualityScanTypeFront,//身份证正面拍照
     HSIDCardQualityScanTypeBack, //身份证背面拍照
@@ -25,10 +27,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface HSIDCardScannerViewController : UIViewController
+///使用此初始化方式进行初始化
+- (instancetype)initWithName:(NSString*)name idCardNum:(NSString*)idCardNum;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
 @property (assign, nonatomic) HSIDCardQualityScanType scanType;
-/** 网络环境 */
+/** 默认测试环境*/
 @property (assign, nonatomic) HSIDOCRNetworkStateType networkType;
 @property (nonatomic, weak) id<HSIDCardScannerViewControllerDelegate> idCardScannerViewDelegate;
+
+
 
 @end
 

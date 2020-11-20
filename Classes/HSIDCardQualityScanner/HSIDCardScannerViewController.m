@@ -7,13 +7,11 @@
 //
 
 #import "HSIDCardScannerViewController.h"
-
+#import "HSIDCardQualityDefineHeader.h"
 #import "UIImage+IDCardExtend.h"
 
-
-///字符串判空
-#define SAFE_STRING(string) (string != nil) ? (string) : (string = @"")
-#define IS_EMPTY_STRING(string) (string == nil ||[string isEqualToString:@""])? YES : NO
+extern NSString * HSIDCardVersion = @"1.1.0";
+UIKIT_EXTERN
 @interface HSIDCardScannerViewController ()
 <
 HSIDCardQualityScannerDelegate,
@@ -24,16 +22,43 @@ HSIDCardQualityScannerControllerDelegate
 @property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
 /** 当前图片 */
 @property (nonatomic, strong) UIImage * currentImage;
-
+/** 姓名 */
+@property (nonatomic, strong) NSString * name;
+/** 身份证 */
+@property (nonatomic, strong) NSString * idCardNum;
 
 @end
 
 @implementation HSIDCardScannerViewController
 
+- (instancetype)initWithName:(NSString *)name idCardNum:(NSString *)idCardNum{
+    self = [super init];
+    if (self) {
+        self.name = name;
+        self.idCardNum = idCardNum;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCamcraSetting];
+    [self performSelector:@selector(checkNameAndIdCardNum) withObject:nil afterDelay:1];
 }
+
+- (void)checkNameAndIdCardNum{
+    if (IS_EMPTY_STRING(self.name)||IS_EMPTY_STRING(self.idCardNum)) {
+        NSString *resultStr = @"请传入需要识别的姓名和身份证号,否则无法使用识别功能";
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"结果" message:resultStr preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            [self backPreviousController];
+        }];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+        [self stop];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if (self.presentingViewController||[self.navigationController.viewControllers.firstObject isEqual:self]){
@@ -73,8 +98,10 @@ HSIDCardQualityScannerControllerDelegate
     self.scanSide = scanSide;
     self.clearAllOnFailed = YES;
     self.idCardQualityScanner = [[HSCustomIDCardScannerController alloc] initWithOrientation:videoOrientation delegate:self];
+    self.idCardQualityScanner.scanSide = scanSide;
+    self.idCardQualityScanner.name = self.name;
+    self.idCardQualityScanner.idCardNum = self.idCardNum;
     self.idCardQualityScanner.networkType = self.networkType;
-
     HSIDCardQualityScanView *rootView = self.idCardQualityScanner.idCardScanView;
     CGFloat width = 315;
     CGFloat height = 200;

@@ -32,6 +32,11 @@
 @property (nonatomic, assign) CGRect uiWindowRect;
 @property (nonatomic, assign) UIInterfaceOrientation interfaceOrientation;
 @property (nonatomic, assign) AVCaptureVideoOrientation captureOrientation;
+@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
+/** 姓名 */
+@property (nonatomic, strong) NSString * name;
+/** 身份证 */
+@property (nonatomic, strong) NSString * idCardNum;
 
 - (instancetype)initWithOrientation:(AVCaptureVideoOrientation)orientation;
 
