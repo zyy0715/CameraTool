@@ -11,7 +11,7 @@
 #import "HSIDCardQualityVideoCaptureManger.h"
 #import "HSIDCardQualityBaseScanView.h"
 #import "HSOCRIDCardQualityEnumTypeHeader.h"
-#import "HSIDCard.h"
+#import <HSIDCard/HSIDCard.h>
 
 @protocol HSIDCardQualityScannerControllerDelegate <NSObject>
 

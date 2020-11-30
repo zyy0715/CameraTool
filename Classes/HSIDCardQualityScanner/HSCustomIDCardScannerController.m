@@ -30,7 +30,7 @@ HSIDCardScannerManagerDelegate
 /** 照片 */
 @property (nonatomic, strong) UIImage * photoImage;
 /** 显示拍照正反面 */
-@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
+//@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
 
 /** SDK管理类 */
 @property (nonatomic, strong) HSIDCardScannerManager * manager;
@@ -82,7 +82,8 @@ HSIDCardScannerManagerDelegate
     self.idCardScanView.photoBtn.hidden = YES;
     [self.idCardScanView.photoBtn addTarget:self action:@selector(photoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.idCardScanView.backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-
+    self.idCardNum = [self.idCardNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    self.name = [self.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
     if (self.scanSide == HSIDCardQualityCardSideScanFront) {

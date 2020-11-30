@@ -40,10 +40,10 @@
 		9B4FB574254A800B0027F90A /* converted_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9B4FB573254A800B0027F90A /* converted_model.tflite */; };
 		9B4FB579254AA7B60027F90A /* test_labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B4FB578254AA7B60027F90A /* test_labels.txt */; };
 		9B6538C52558E01C00316746 /* black_model_uint8.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 9B6538C42558E01C00316746 /* black_model_uint8.tflite */; };
-		9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B67B4522510602100DF4DED /* HSIDCard.framework */; };
 		9B67B4572510A15B00DF4DED /* tips_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4542510A15B00DF4DED /* tips_icon@2x.png */; };
 		9B67B4582510A15B00DF4DED /* tips_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67B4552510A15B00DF4DED /* tips_icon@3x.png */; };
 		9BCB31F8253D90D0006543BE /* output_labels_card.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9BCB31F6253D90D0006543BE /* output_labels_card.txt */; };
+		9BE77EEC256D16A000AF61F6 /* HSIDCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE77EEB256D16A000AF61F6 /* HSIDCard.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,10 +118,10 @@
 		9B4FB573254A800B0027F90A /* converted_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = converted_model.tflite; sourceTree = "<group>"; };
 		9B4FB578254AA7B60027F90A /* test_labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_labels.txt; sourceTree = "<group>"; };
 		9B6538C42558E01C00316746 /* black_model_uint8.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = black_model_uint8.tflite; sourceTree = "<group>"; };
-		9B67B4522510602100DF4DED /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		9B67B4542510A15B00DF4DED /* tips_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@2x.png"; sourceTree = "<group>"; };
 		9B67B4552510A15B00DF4DED /* tips_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tips_icon@3x.png"; sourceTree = "<group>"; };
 		9BCB31F6253D90D0006543BE /* output_labels_card.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = output_labels_card.txt; sourceTree = "<group>"; };
+		9BE77EEB256D16A000AF61F6 /* HSIDCard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HSIDCard.framework; sourceTree = "<group>"; };
 		E24CF513047C69C78ADD6879 /* Pods-HSIDCardFrameworkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HSIDCardFrameworkTest.debug.xcconfig"; path = "Target Support Files/Pods-HSIDCardFrameworkTest/Pods-HSIDCardFrameworkTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B67B4532510602100DF4DED /* HSIDCard.framework in Frameworks */,
+				9BE77EEC256D16A000AF61F6 /* HSIDCard.framework in Frameworks */,
 				3513D97BDDC15B6BE5AF8D19 /* libPods-HSIDCardFrameworkTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +292,7 @@
 		9B67B4512510602100DF4DED /* HSIDCard */ = {
 			isa = PBXGroup;
 			children = (
-				9B67B4522510602100DF4DED /* HSIDCard.framework */,
+				9BE77EEB256D16A000AF61F6 /* HSIDCard.framework */,
 			);
 			name = HSIDCard;
 			path = ../../HSIDCard;
@@ -675,7 +675,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 27;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
@@ -713,7 +713,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 27;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TZR7PRA233;
 				ENABLE_BITCODE = NO;
