@@ -23,6 +23,9 @@
 @property (nonatomic, strong) UILabel * errorLabel;
 /** info图标 */
 @property (nonatomic, strong) UIImageView * infoIV;
+/** 图片尺寸 */
+@property (nonatomic, strong) UILabel * showLabel;
+
 
 - (instancetype)initWithFrame:(CGRect)frame
                   windowFrame:(CGRect)windowFrame

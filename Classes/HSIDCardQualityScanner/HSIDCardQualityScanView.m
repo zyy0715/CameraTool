@@ -67,6 +67,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 
     [self addSubview:_noticeLabel];
 
+    [self addSubview:self.showLabel];
 
     [self.photoBtn setFrame:CGRectMake(0, 0, 60, 60)];
     [self.photoBtn setCenter:CGPointMake(CGRectGetMidX(self.frame), CGRectGetHeight(self.frame)-60)];
@@ -87,7 +88,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
     [self.iconIV setCenter:CGPointMake(gx, gy)];
     [self addSubview:self.iconIV];
 
-    [self.showIV setFrame:CGRectMake(0, 0, CGRectGetWidth(self.windowFrame)+5, CGRectGetHeight(self.windowFrame)+5)];
+    [self.showIV setFrame:CGRectMake(0, 0, CGRectGetWidth(self.windowFrame)-4, CGRectGetHeight(self.windowFrame)-4)];
     [self.showIV setCenter: CGPointMake(CGRectGetMidX(self.windowFrame), CGRectGetMidY(self.windowFrame))];
     [self addSubview:self.showIV];
 
@@ -130,7 +131,7 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
         [_photoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"photograph@2x.png" ofType:nil];
-        //[_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
+        [_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
         [_photoBtn setBackgroundImage:[UIImage imageWithContentsOfFile:path]  forState:UIControlStateNormal];
         _photoBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         //_photoBtn.hidden = YES;
@@ -144,8 +145,8 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
 
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"nav_btn_back@2x.png" ofType:nil];
-        [_backBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
         [_backBtn setImageEdgeInsets:UIEdgeInsetsMake(5, 10, 25, 50)];
+        [_backBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
     }
     return _backBtn;
 }
@@ -201,6 +202,18 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
         [_errorLabel sizeToFit];
     }
     return _errorLabel;
+}
+
+- (UILabel *)showLabel{
+    if (nil == _showLabel) {
+        _showLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, 300, 30)];
+        [_showLabel setBackgroundColor:[UIColor clearColor]];
+        [_showLabel setTextColor:[UIColor redColor]];
+        [_showLabel setFont:[UIFont systemFontOfSize:STIdCardViewLabelFrontSize]];
+        [_showLabel setTextAlignment:NSTextAlignmentLeft];
+        [_showLabel sizeToFit];
+    }
+    return _showLabel;
 }
 
 

@@ -18,20 +18,26 @@ NSInteger const STIdCardScannerScanBoundary = 64;
 HSIDCardQualityVideoCaptureMangerDelegate,
 HSIDCardScannerManagerDelegate
 >
+{
+    BOOL isNext;
+    NSInteger skipCount;
+}
 @property (assign, nonatomic) HSIDCardQualityCardSide cardSide;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSOperationQueue *mainQueue;
 @property (nonatomic, strong) UILabel *label;
 /** 照片 */
 @property (nonatomic, strong) UIImage * photoImage;
-/** 显示拍照正反面 */
-@property (nonatomic, assign) HSIDCardQualityScanSide scanSide;
+
 
 /** SDK管理类 */
 @property (nonatomic, strong) HSIDCardScannerManager * manager;
 
 /** 图片传回block */
 @property (nonatomic, copy) Completed block;
+
+/** 图片 */
+@property (nonatomic, strong) UIImageView * bgIV;
 
 @end
 
@@ -57,6 +63,8 @@ HSIDCardScannerManagerDelegate
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    isNext = NO;
+    skipCount = 0;
     self.view.backgroundColor = [UIColor whiteColor];
     self.videoCaptureManger.idCardCaptureManagerDelegate = self;
     [self.videoCaptureManger setVideoOrientation:self.captureOrientation];
@@ -68,19 +76,20 @@ HSIDCardScannerManagerDelegate
     [self.view addSubview:self.idCardScanView];
     [self.idCardScanView.photoBtn addTarget:self action:@selector(photoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.idCardScanView.backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-
+    self.idCardNum = [self.idCardNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    self.name = [self.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
-    [self.manager setDefaultConfig:@{@"name":SAFE_STRING(self.name),@"idCardNo":SAFE_STRING(self.idCardNum)}];
+    if (self.scanSide == HSIDCardQualityCardSideScanFront) {
+         [self.manager setDefaultConfig:@{@"name":SAFE_STRING(self.name),@"idCardNo":SAFE_STRING(self.idCardNum)}];
+    }else{
+        [self.manager setDefaultConfig:@{}];
+    }
     if (self.networkType == HSIDOCRNetworkStateProductionType) {
         [self.manager setCurrentNetWorkType:HSNetworkStateProductionType];
     }else{
         [self.manager setCurrentNetWorkType:HSNetworkStateTestType];
     }
-
-
-
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
