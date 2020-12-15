@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CameraTool"
-  spec.version      = "0.1.7"
+  spec.version      = "1.1.1"
   spec.summary      = "证件拍照相机工具及识别"
 
   # This description is used to generate tags and improve search results.
