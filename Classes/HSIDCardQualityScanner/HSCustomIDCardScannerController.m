@@ -76,7 +76,8 @@ HSIDCardScannerManagerDelegate
     [self.view addSubview:self.idCardScanView];
     [self.idCardScanView.photoBtn addTarget:self action:@selector(photoBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.idCardScanView.backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.idCardNum = [self.idCardNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString * cardNum = [self.idCardNum stringByReplacingOccurrencesOfString:@" " withString:@""];
+    self.idCardNum = [cardNum uppercaseString];
     self.name = [self.name stringByReplacingOccurrencesOfString:@" " withString:@""];
     self.manager = [HSIDCardScannerManager shareInstance];
     self.manager.delegate = self;
