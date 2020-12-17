@@ -131,7 +131,6 @@ NSInteger const STIdCardViewLabelFrontSize = 15;
         [_photoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
         NSString *path = [currentBundle pathForResource:@"photograph@2x.png" ofType:nil];
-        [_photoBtn setImage:[UIImage imageWithContentsOfFile:path] forState:UIControlStateNormal];
         [_photoBtn setBackgroundImage:[UIImage imageWithContentsOfFile:path]  forState:UIControlStateNormal];
         _photoBtn.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         //_photoBtn.hidden = YES;
